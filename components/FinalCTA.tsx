@@ -6,7 +6,7 @@ export default function FinalCTA() {
       <div style={{ maxWidth: 1024, margin: "0 auto" }}>
         <div style={{ maxWidth: 520 }}>
 
-          <p style={{ fontSize: 11, fontWeight: 700, color: "#82EEFD", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24 }}>
             Ready to start
           </p>
           <h2 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#ffffff", lineHeight: 1.15, marginBottom: 20 }}>

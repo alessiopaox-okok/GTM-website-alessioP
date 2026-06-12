@@ -47,7 +47,7 @@ export default function Resources() {
 
         {/* Header */}
         <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 56 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: "#82EEFD", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.2em", textTransform: "uppercase" }}>
             Resources
           </p>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#0A0A0F", lineHeight: 1.2 }}>
@@ -81,8 +81,8 @@ export default function Resources() {
                 display: "inline-block",
                 fontSize: 10,
                 fontWeight: 700,
-                color: "#82EEFD",
-                backgroundColor: "rgba(130,238,253,0.1)",
+                color: "#38BDF8",
+                backgroundColor: "rgba(56,189,248,0.1)",
                 padding: "3px 10px",
                 borderRadius: 20,
                 letterSpacing: "0.08em",
@@ -108,7 +108,7 @@ export default function Resources() {
                 <span style={{
                   fontSize: 12,
                   fontWeight: 600,
-                  color: r.available ? "#82EEFD" : "#C4CDD8",
+                  color: r.available ? "#38BDF8" : "#C4CDD8",
                   letterSpacing: "0.04em",
                 }}>
                   {r.cta} →
@@ -122,8 +122,8 @@ export default function Resources() {
 
       <style>{`
         .resource-card:hover {
-          border-color: rgba(130,238,253,0.4) !important;
-          background-color: #F6FEFF !important;
+          border-color: rgba(56,189,248,0.4) !important;
+          background-color: #F0F9FF !important;
         }
       `}</style>
     </section>

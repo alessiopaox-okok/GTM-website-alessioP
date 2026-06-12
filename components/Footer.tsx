@@ -8,8 +8,8 @@ export default function Footer() {
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <ArchLogo size={18} />
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: "#ffffff" }}>
-              Distribution <span style={{ color: "#82EEFD" }}>Lab</span>
+            <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", color: "#ffffff" }}>
+              Distribution <span style={{ color: "#38BDF8" }}>Lab</span>
             </p>
             <p style={{ fontSize: 11, color: "#374151", marginTop: 2 }}>GTM systems for founder-led brands.</p>
           </div>

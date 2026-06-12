@@ -1,20 +1,71 @@
 @import "tailwindcss";
 
-* { box-sizing: border-box; }
+/* ─── Typography tokens ───────────────────────────────────────────────────
+   --font-sans  Geist Sans  — body, headings, logo
+   --font-mono  Geist Mono  — 01/02/03 accents, eyebrows, UI tags
+
+   GeistSans / GeistMono inject CSS variables named:
+     --font-geist-sans   (via GeistSans.variable class)
+     --font-geist-mono   (via GeistMono.variable class)
+   We alias them here so components reference the stable token names.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Logo color tokens */
+  --logo-primary:    #1E293B;
+  --logo-accent:     #38BDF8;
+  --logo-icon-dark:  #4A7CF6;
+  --logo-icon-mid:   #93C5FD;
+  --logo-icon-light: #BFDBFE;
+  --logo-icon-dome:  #1E3A8A;
+}
+
+/* ─── Wire tokens into Tailwind v4 theme ───────────────────────────────── */
+@theme {
+  --color-accent: #38BDF8;
+
+  /* Override Tailwind's default font stacks with our tokens */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ─── Base styles ───────────────────────────────────────────────────────── */
+*  { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
   background-color: #ffffff;
   color: #0A0A0F;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Heading defaults — Geist, bold, tight tracking ───────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+/* ─── Mono accents ─────────────────────────────────────────────────────── */
+/* Apply via Tailwind's font-mono utility or directly in components via
+   font-family: var(--font-mono).
+   Used for: pillar numbers (01/02/03), eyebrow labels, small UI tags. */
+
+/* ─── Selection ────────────────────────────────────────────────────────── */
 ::selection {
-  background-color: #3B82F6;
+  background-color: #38BDF8;
   color: #fff;
 }
 
-/* ─── Button tracing border ──────────────────────────────────────────────── */
-
+/* ─── Button tracing border ─────────────────────────────────────────────── */
 .trace-rect {
   stroke-dasharray: var(--perimeter, 9999);
   stroke-dashoffset: var(--perimeter, 9999);

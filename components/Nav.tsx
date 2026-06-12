@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ArchLogo from "./ArchLogo";
+import Logo from "./Logo";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,53 +14,50 @@ export default function Nav() {
   }, []);
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0, left: 0, right: 0,
-        zIndex: 50,
-        transition: "all 0.3s ease",
-        backgroundColor: scrolled ? "rgba(255,255,255,0.90)" : "transparent",
-        backdropFilter: scrolled ? "blur(14px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.07)" : "1px solid transparent",
-      }}
-    >
-      <nav
-        style={{
-          maxWidth: 1024,
-          margin: "0 auto",
-          padding: "0 24px",
-          height: 64,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+    <header style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+      transition: "all 0.3s ease",
+      backgroundColor: scrolled ? "rgba(240,247,255,0.92)" : "rgba(240,247,255,0.85)",
+      backdropFilter: "blur(14px)",
+      borderBottom: scrolled ? "1px solid rgba(56,189,248,0.15)" : "1px solid transparent",
+    }}>
+      <nav style={{
+        maxWidth: 1100, margin: "0 auto", padding: "0 40px",
+        height: 64, display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+
         {/* Brand */}
-        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-          <ArchLogo size={22} />
-          <span style={{ fontSize: 14, fontWeight: 600, color: "#0A0A0F", letterSpacing: "-0.01em" }}>
-            Distribution <span style={{ color: "#82EEFD" }}>Lab</span>
-          </span>
+        <a href="#" style={{ textDecoration: "none" }}>
+          <Logo height={36} />
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex" style={{ alignItems: "center", gap: 32 }}>
-          {[["Work","#work"],["Process","#process"],["Resources","#resources"]].map(([label, href]) => (
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: 36 }}>
+          {[["Work","#work"],["How it works","#process"],["Resources","#resources"]].map(([label, href]) => (
             <a key={label} href={href} className="nav-link"
-              style={{ fontSize: 14, color: "#8492A6", textDecoration: "none", transition: "color 0.15s" }}>
+              style={{ fontSize: 14, color: "#64748B", textDecoration: "none", transition: "color 0.15s", fontWeight: 500 }}>
               {label}
             </a>
           ))}
           <a href="#contact" className="nav-cta"
-            style={{ fontSize: 13, fontWeight: 500, color: "#0A0A0F", textDecoration: "none", padding: "8px 16px", borderRadius: 8, border: "1px solid rgba(0,0,0,0.14)", transition: "all 0.15s" }}>
+            style={{
+              fontSize: 13, fontWeight: 600, color: "#fff",
+              textDecoration: "none", padding: "9px 18px", borderRadius: 9,
+              backgroundColor: "#38BDF8",
+              boxShadow: "0 2px 10px rgba(56,189,248,0.30)",
+              transition: "all 0.15s",
+              display: "inline-flex", alignItems: "center", gap: 6,
+            }}>
             Book a call
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button className="md:hidden"
-          style={{ padding: 8, color: "#8492A6", background: "none", border: "none", cursor: "pointer" }}
+          style={{ padding: 8, color: "#64748B", background: "none", border: "none", cursor: "pointer" }}
           onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
           {menuOpen
             ? <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M3 3l12 12M15 3L3 15"/></svg>
@@ -70,17 +67,21 @@ export default function Nav() {
       </nav>
 
       {menuOpen && (
-        <div style={{ backgroundColor: "rgba(255,255,255,0.97)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(0,0,0,0.07)", padding: "8px 24px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
-          <a href="#work"      style={{ fontSize: 14, color: "#8492A6", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#process"   style={{ fontSize: 14, color: "#8492A6", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Process</a>
-          <a href="#resources" style={{ fontSize: 14, color: "#8492A6", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Resources</a>
-          <a href="#contact" style={{ fontSize: 13, fontWeight: 500, color: "#0A0A0F", textDecoration: "none", padding: "10px 16px", borderRadius: 8, border: "1px solid rgba(0,0,0,0.14)", textAlign: "center" }} onClick={() => setMenuOpen(false)}>Book a call</a>
+        <div style={{ backgroundColor: "rgba(240,247,255,0.97)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(56,189,248,0.1)", padding: "8px 40px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
+          <a href="#work"      style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#process"   style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>How it works</a>
+          <a href="#resources" style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Resources</a>
+          <a href="#contact"
+            style={{ fontSize: 13, fontWeight: 600, color: "#fff", textDecoration: "none", padding: "10px 18px", borderRadius: 9, backgroundColor: "#38BDF8", textAlign: "center" }}
+            onClick={() => setMenuOpen(false)}>
+            Book a call →
+          </a>
         </div>
       )}
 
       <style>{`
-        .nav-link:hover { color: #0A0A0F !important; }
-        .nav-cta:hover { background-color: #f5f5f5 !important; }
+        .nav-link:hover { color: #0F172A !important; }
+        .nav-cta:hover  { background-color: #0EA5E9 !important; box-shadow: 0 2px 14px rgba(56,189,248,0.45) !important; }
       `}</style>
     </header>
   );

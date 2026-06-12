@@ -6,10 +6,10 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" style={{ backgroundColor: "#F6FEFF", borderTop: "1px solid rgba(0,0,0,0.06)", padding: "96px 24px" }}>
+    <section id="process" style={{ backgroundColor: "#F0F9FF", borderTop: "1px solid rgba(0,0,0,0.06)", padding: "96px 24px" }}>
       <div style={{ maxWidth: 1024, margin: "0 auto" }}>
 
-        <p style={{ fontSize: 11, fontWeight: 700, color: "#82EEFD", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>
           How Distribution Lab works
         </p>
         <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#0A0A0F", lineHeight: 1.2, marginBottom: 64 }}>
@@ -21,7 +21,7 @@ export default function Process() {
             <div key={s.n} className="process-step">
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <div className="process-rule" style={{ height: 1, flex: 1, backgroundColor: "rgba(0,0,0,0.09)", transition: "background-color 0.3s" }} />
-                <span style={{ fontSize: 10, fontFamily: "monospace", fontWeight: 700, color: "#82EEFD", letterSpacing: "0.12em" }}>{s.n}</span>
+                <span style={{ fontSize: 10, fontFamily: "var(--font-mono)", fontWeight: 700, color: "#38BDF8", letterSpacing: "0.12em" }}>{s.n}</span>
               </div>
               <h3 style={{ fontSize: 15, fontWeight: 600, color: "#0A0A0F", marginBottom: 8 }}>{s.title}</h3>
               <p style={{ fontSize: 13, lineHeight: 1.7, color: "#6B7280" }}>{s.body}</p>
@@ -30,7 +30,7 @@ export default function Process() {
         </div>
 
       </div>
-      <style>{`.process-step:hover .process-rule { background-color: rgba(130,238,253,0.55) !important; }`}</style>
+      <style>{`.process-step:hover .process-rule { background-color: rgba(56,189,248,0.55) !important; }`}</style>
     </section>
   );
 }

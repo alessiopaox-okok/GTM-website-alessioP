@@ -33,13 +33,13 @@ export default function Button({ href, children, variant = "primary", size = "md
     primary:      { backgroundColor: "#0A0A0F", color: "#ffffff" },
     ghost:        { backgroundColor: "transparent", color: "#0A0A0F", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.18)" },
     "ghost-dark": { backgroundColor: "transparent", color: "#ffffff", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18)" },
-    accent:       { backgroundColor: "#82EEFD", color: "#0A0A0F" },   // dark text on light cyan
+    accent:       { backgroundColor: "#38BDF8", color: "#0A0A0F" },   // dark text on light cyan
   };
 
   const strokeMap: Record<string, string> = {
-    primary:      "#82EEFD",
-    ghost:        "#82EEFD",
-    "ghost-dark": "#82EEFD",
+    primary:      "#38BDF8",
+    ghost:        "#38BDF8",
+    "ghost-dark": "#38BDF8",
     accent:       "#0A0A0F",
   };
 
