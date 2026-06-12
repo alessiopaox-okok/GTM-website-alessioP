@@ -27,8 +27,18 @@ export default function Nav() {
       }}>
 
         {/* Brand */}
-        <a href="#" style={{ textDecoration: "none" }}>
-          <Logo height={36} />
+        <a href="#" style={{ textDecoration: "none", display: "inline-flex", alignItems: "flex-end", gap: 9 }}>
+          <Logo height={28} />
+          <span style={{
+            fontSize: 16,
+            fontWeight: 700,
+            color: "#0F172A",
+            letterSpacing: "-0.025em",
+            lineHeight: 1,
+            userSelect: "none",
+          }}>
+            Distribution Lab
+          </span>
         </a>
 
         {/* Desktop */}
