@@ -73,10 +73,10 @@ export default function Hero() {
             color: "#0C111D",
             marginBottom: 28,
           }}>
-            Scale wholesale<br />
-            like a system,<br />
+            Turn messy wholesale<br />
+            into a repeatable<br />
             <span style={{ color:"#38BDF8", fontStyle:"italic" }}>
-              not a guess.
+              revenue system.
             </span>
           </h1>
 
@@ -115,17 +115,22 @@ export default function Hero() {
             <div style={{ display:"flex", alignItems:"center", gap:16, flexWrap:"wrap" }}>
               {/* avatar stack */}
               <div style={{ display:"flex", alignItems:"center" }}>
-                {["#38BDF8","#22C55E","#818CF8"].map((c,i)=>(
-                  <div key={i} style={{
-                    width:26, height:26, borderRadius:"50%", backgroundColor:c,
-                    border:"2px solid #fff",
-                    marginLeft: i===0?0:-7,
-                    display:"flex", alignItems:"center", justifyContent:"center",
-                    fontSize:9, fontWeight:700, color:"#fff",
-                    position:"relative", zIndex:3-i,
-                  }}>
-                    {["A","B","C"][i]}
-                  </div>
+                {[
+                  "https://randomuser.me/api/portraits/women/44.jpg",
+                  "https://randomuser.me/api/portraits/men/32.jpg",
+                  "https://randomuser.me/api/portraits/women/68.jpg",
+                ].map((src, i) => (
+                  <img key={i} src={src} alt="founder"
+                    width={28} height={28}
+                    style={{
+                      width:28, height:28, borderRadius:"50%",
+                      border:"2px solid #fff",
+                      marginLeft: i===0?0:-8,
+                      objectFit:"cover",
+                      position:"relative", zIndex:3-i,
+                      display:"block",
+                    }}
+                  />
                 ))}
               </div>
 

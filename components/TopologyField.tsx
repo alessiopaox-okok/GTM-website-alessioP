@@ -1,24 +1,22 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-/* ─────────────────────────────────────────────────────────────────
-   Ambient topology network — extremely minimal, premium, abstract.
-   Suggests "distribution network / signal field" without being literal.
-   ───────────────────────────────────────────────────────────────── */
+const BLUE_NODE = "rgba(56,189,248,";
+const GREY_NODE = "rgba(148,163,184,";
+const LINE_COL  = "rgba(186,230,253,";
+const GLOW_COL  = "rgba(56,189,248,";
 
-const BLUE_NODE  = "rgba(56,189,248,";   // active node colour
-const GREY_NODE  = "rgba(148,163,184,";  // passive node colour
-const LINE_COL   = "rgba(186,230,253,";  // connection line colour
-const GLOW_COL   = "rgba(56,189,248,";   // pulse ring colour
+const MOUSE_RADIUS = 130;   // px — influence zone
+const REPEL        = 0.14;  // repulsion strength
 
 interface Node {
-  x: number; y: number;        // current
-  ox: number; oy: number;      // origin
+  x: number; y: number;
+  ox: number; oy: number;
   vx: number; vy: number;
   r: number;
   kind: "active" | "passive";
   phase: number;
-  signalPhase: number;         // for travelling signal
+  signalPhase: number;
 }
 
 function seededRand(seed: number) {
@@ -27,9 +25,8 @@ function seededRand(seed: number) {
 }
 
 function buildNodes(W: number, H: number): Node[] {
-  const rng = seededRand(2024);
+  const rng   = seededRand(2024);
   const nodes: Node[] = [];
-  // Grid-jitter placement — ensures good distribution, organic feel
   const cols = 10, rows = 7;
   for (let col = 0; col < cols; col++) {
     for (let row = 0; row < rows; row++) {
@@ -38,7 +35,6 @@ function buildNodes(W: number, H: number): Node[] {
       const jy = (rng() - 0.5) * cellH * 0.55;
       const x  = (col + 0.5) * cellW + jx;
       const y  = (row + 0.5) * cellH + jy;
-      // More active nodes on the right half
       const rightBias = x / W;
       const isActive  = rng() < 0.22 + rightBias * 0.28;
       nodes.push({
@@ -55,7 +51,6 @@ function buildNodes(W: number, H: number): Node[] {
   return nodes;
 }
 
-// Which nodes to connect
 function buildEdges(nodes: Node[], maxDist: number): [number,number][] {
   const edges: [number,number][] = [];
   for (let i = 0; i < nodes.length; i++)
@@ -69,6 +64,7 @@ function buildEdges(nodes: Node[], maxDist: number): [number,number][] {
 
 export default function TopologyField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouse     = useRef({ x: -9999, y: -9999 });
   const raf       = useRef(0);
 
   useEffect(() => {
@@ -89,24 +85,47 @@ export default function TopologyField() {
       edges = buildEdges(nodes, Math.min(W, H) * 0.22);
     }
 
+    // Track mouse relative to canvas
+    function onMouseMove(e: MouseEvent) {
+      const r = canvas.getBoundingClientRect();
+      mouse.current = { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+    function onMouseLeave() {
+      mouse.current = { x: -9999, y: -9999 };
+    }
+
     function frame() {
       tick++;
       ctx.clearRect(0, 0, W, H);
 
-      // ── drift nodes very slowly back to origin ──
+      const mx = mouse.current.x, my = mouse.current.y;
+
       for (const n of nodes) {
-        n.vx += (n.ox - n.x) * 0.0008;
-        n.vy += (n.oy - n.y) * 0.0008;
-        n.vx *= 0.98; n.vy *= 0.98;
+        const dx   = n.x - mx;
+        const dy   = n.y - my;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if (dist < MOUSE_RADIUS && dist > 0.5) {
+          // repel away from cursor — stronger when closer
+          const force = (1 - dist / MOUSE_RADIUS) * REPEL;
+          n.vx += (dx / dist) * force * 2;
+          n.vy += (dy / dist) * force * 2;
+        } else {
+          // spring back to origin
+          n.vx += (n.ox - n.x) * 0.0008;
+          n.vy += (n.oy - n.y) * 0.0008;
+        }
+
+        // dampen
+        n.vx *= 0.82; n.vy *= 0.82;
         n.x  += n.vx;  n.y  += n.vy;
       }
 
-      // ── draw connection lines ──
+      // ── connection lines ──
       for (const [ai, bi] of edges) {
         const a = nodes[ai], b = nodes[bi];
         const dx = a.x - b.x, dy = a.y - b.y;
         const dist = Math.sqrt(dx*dx + dy*dy);
-        // fade with distance
         const alpha = (1 - dist / (Math.min(W,H)*0.22)) * 0.22;
         if (alpha <= 0) continue;
         ctx.beginPath();
@@ -117,7 +136,7 @@ export default function TopologyField() {
         ctx.stroke();
       }
 
-      // ── travelling signal on ~15% of edges ──
+      // ── travelling signals ──
       for (let i = 0; i < edges.length; i++) {
         if (i % 7 !== 0) continue;
         const [ai, bi] = edges[i];
@@ -125,56 +144,55 @@ export default function TopologyField() {
         const t = ((tick * 0.004 + nodes[ai].signalPhase) % 1);
         const sx = a.x + (b.x - a.x) * t;
         const sy = a.y + (b.y - a.y) * t;
-        const pulse = Math.sin(t * Math.PI);          // fade in/out at endpoints
+        const pulse = Math.sin(t * Math.PI);
         ctx.beginPath();
         ctx.arc(sx, sy, 2.2, 0, Math.PI*2);
-        ctx.fillStyle = BLUE_NODE + (0.75 * pulse).toFixed(3) + ")";
+        ctx.fillStyle   = BLUE_NODE + (0.75 * pulse).toFixed(3) + ")";
         ctx.shadowColor = "rgba(56,189,248,0.6)";
         ctx.shadowBlur  = 4;
         ctx.fill();
         ctx.shadowBlur  = 0;
       }
 
-      // ── draw nodes ──
+      // ── nodes ──
       for (const n of nodes) {
-        const pulse = (Math.sin(tick * 0.018 + n.phase) + 1) / 2;
+        const pulse    = (Math.sin(tick * 0.018 + n.phase) + 1) / 2;
+        const nearMouse = Math.sqrt((n.x-mx)**2 + (n.y-my)**2) < MOUSE_RADIUS;
 
         if (n.kind === "active") {
-          // outer glow ring
+          // outer glow ring — brighter near cursor
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r + 5 + pulse * 4, 0, Math.PI*2);
-          ctx.strokeStyle = GLOW_COL + (0.14 + pulse * 0.10) + ")";
+          ctx.strokeStyle = GLOW_COL + (nearMouse ? 0.35 : 0.14 + pulse * 0.10) + ")";
           ctx.lineWidth   = 1;
           ctx.stroke();
 
-          // middle ring
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r + 2, 0, Math.PI*2);
-          ctx.strokeStyle = BLUE_NODE + "0.32)";
+          ctx.strokeStyle = BLUE_NODE + (nearMouse ? "0.55)" : "0.32)");
           ctx.lineWidth   = 1;
           ctx.stroke();
 
-          // inner circle — outlined
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
-          ctx.strokeStyle = BLUE_NODE + (0.72 + pulse * 0.25) + ")";
+          ctx.strokeStyle = BLUE_NODE + (nearMouse ? "0.95)" : (0.72 + pulse * 0.25) + ")");
           ctx.lineWidth   = 1.5;
           ctx.stroke();
 
-          // filled centre dot with soft glow
           ctx.beginPath();
           ctx.arc(n.x, n.y, 1.6, 0, Math.PI*2);
           ctx.fillStyle   = BLUE_NODE + "0.90)";
-          ctx.shadowColor = "rgba(56,189,248,0.7)";
-          ctx.shadowBlur  = 6;
+          ctx.shadowColor = nearMouse ? "rgba(56,189,248,1)" : "rgba(56,189,248,0.7)";
+          ctx.shadowBlur  = nearMouse ? 10 : 6;
           ctx.fill();
           ctx.shadowBlur  = 0;
 
         } else {
-          // passive — outlined circle, now clearly visible
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
-          ctx.strokeStyle = GREY_NODE + (0.28 + pulse * 0.12) + ")";
+          ctx.strokeStyle = nearMouse
+            ? BLUE_NODE + "0.55)"
+            : GREY_NODE + (0.28 + pulse * 0.12) + ")";
           ctx.lineWidth   = 1;
           ctx.stroke();
         }
@@ -183,11 +201,20 @@ export default function TopologyField() {
       raf.current = requestAnimationFrame(frame);
     }
 
+    // Listen on window so mouse works even when canvas has pointerEvents:none
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseleave", onMouseLeave);
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
     resize();
     raf.current = requestAnimationFrame(frame);
-    return () => { cancelAnimationFrame(raf.current); ro.disconnect(); };
+
+    return () => {
+      cancelAnimationFrame(raf.current);
+      ro.disconnect();
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseleave", onMouseLeave);
+    };
   }, []);
 
   return (

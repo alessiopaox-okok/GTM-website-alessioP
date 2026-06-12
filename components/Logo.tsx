@@ -7,76 +7,67 @@ interface LogoProps {
 }
 
 export default function Logo({ height = 40, className, style }: LogoProps) {
-  const sw = height * (10 / 72);
-  const iconW = height * (110 / 72);
-  const fontSize = height * 0.58;
-  const gap = height * 0.38;
+  const sw    = height * (8 / 68);
+  const iconW = height * (96 / 68);
 
   return (
     <div
       className={className}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap,
-        ...style,
-      }}
+      style={{ display: "inline-flex", alignItems: "center", ...style }}
     >
       <svg
         width={iconW}
         height={height}
-        viewBox="0 0 110 72"
+        viewBox="0 0 96 68"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
+        aria-label="Distribution Lab"
         style={{ flexShrink: 0 }}
       >
-        {/* Outer arc */}
-        <path
-          d="M 7 72 A 48 48 0 0 1 103 72"
-          stroke="var(--logo-icon-dark, #4A7CF6)"
-          strokeWidth={sw}
-          strokeLinecap="round"
-          fill="none"
-        />
-        {/* Middle arc */}
-        <path
-          d="M 22 72 A 33 33 0 0 1 88 72"
-          stroke="var(--logo-icon-mid, #93C5FD)"
-          strokeWidth={sw}
-          strokeLinecap="round"
-          fill="none"
-        />
-        {/* Inner arc */}
-        <path
-          d="M 37 72 A 18 18 0 0 1 73 72"
-          stroke="var(--logo-icon-light, #BFDBFE)"
-          strokeWidth={sw}
-          strokeLinecap="round"
-          fill="none"
-        />
-        {/* Dome */}
-        <path
-          d="M 47 72 A 8 8 0 0 1 63 72 Z"
-          fill="var(--logo-icon-dome, #1E3A8A)"
-        />
-      </svg>
+        <defs>
+          {/* glow for inner arc + dome */}
+          <filter id="lg-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          {/* softer glow for middle arc */}
+          <filter id="lg-glow-soft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
 
-      <span
-        style={{
-          fontFamily: "var(--font-logo, 'Inter Tight', 'Inter', 'Manrope', sans-serif)",
-          fontSize,
-          fontWeight: 700,
-          letterSpacing: "-0.025em",
-          lineHeight: 1,
-          color: "var(--logo-primary, #1E293B)",
-          userSelect: "none",
-          whiteSpace: "nowrap",
-        }}
-      >
-        Distribution{" "}
-        <span style={{ color: "var(--logo-accent, #38BDF8)" }}>Lab</span>
-      </span>
+        {/* outer arc — faint, slowest pulse */}
+        <path d="M 6 68 A 42 42 0 0 1 90 68"
+          stroke="#38BDF8" strokeWidth={sw} strokeLinecap="round" fill="none"
+          strokeOpacity="0.20">
+          <animate attributeName="stroke-opacity"
+            values="0.20;0.06;0.20" dur="3s" repeatCount="indefinite"/>
+        </path>
+
+        {/* middle arc — medium, offset pulse */}
+        <path d="M 19 68 A 29 29 0 0 1 77 68"
+          stroke="#38BDF8" strokeWidth={sw} strokeLinecap="round" fill="none"
+          strokeOpacity="0.40" filter="url(#lg-glow-soft)">
+          <animate attributeName="stroke-opacity"
+            values="0.40;0.18;0.40" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+        </path>
+
+        {/* inner arc — bright, glowing */}
+        <path d="M 32 68 A 16 16 0 0 1 64 68"
+          stroke="#38BDF8" strokeWidth={sw} strokeLinecap="round" fill="none"
+          strokeOpacity="0.85" filter="url(#lg-glow)">
+          <animate attributeName="stroke-opacity"
+            values="0.85;0.50;0.85" dur="3s" begin="1s" repeatCount="indefinite"/>
+        </path>
+
+        {/* dome — solid bright centre */}
+        <path d="M 41 68 A 7 7 0 0 1 55 68 Z"
+          fill="#38BDF8" fillOpacity="1" filter="url(#lg-glow)">
+          <animate attributeName="fill-opacity"
+            values="1;0.55;1" dur="3s" begin="1s" repeatCount="indefinite"/>
+        </path>
+      </svg>
     </div>
   );
 }
