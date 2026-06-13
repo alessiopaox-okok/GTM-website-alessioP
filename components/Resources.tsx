@@ -37,6 +37,7 @@ export default function Resources() {
   return (
     <section
       id="resources"
+      className="sec-pad"
       style={{
         backgroundColor: "#ffffff",
         borderTop: "1px solid rgba(0,0,0,0.06)",

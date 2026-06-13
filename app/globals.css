@@ -34,7 +34,8 @@
 /* ─── Base styles ───────────────────────────────────────────────────────── */
 *  { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 
 body {
   font-family: var(--font-sans);
@@ -79,4 +80,62 @@ h1, h2, h3, h4, h5, h6 {
   transition:
     stroke-dashoffset 0.42s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.06s ease;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+/* Tablet + Mobile shared */
+@media (max-width: 1023px) {
+  .nav-inner   { padding-left: 24px !important; padding-right: 24px !important; }
+  .hero-content{ padding-left: 32px !important; padding-right: 32px !important;
+                 padding-top: 96px !important; }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .nav-inner { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Hero — tighter padding, hide dashboard */
+  .hero-content {
+    padding-top: 80px    !important;
+    padding-bottom: 56px !important;
+    padding-left: 20px   !important;
+    padding-right: 20px  !important;
+  }
+  .pipeline-dashboard { display: none !important; }
+
+  /* WhatItIs — un-sticky right column when stacked */
+  .witl-right-col {
+    position: static    !important;
+    top:       auto     !important;
+    transform: none     !important;
+  }
+
+  /* WhatIBuild — hide illustration, show cards full-width */
+  .signal-pipeline-wrap { display: none !important; }
+  .wib-outer { gap: 32px !important; }
+
+  /* Section padding reduction */
+  .sec-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+}
+
+/* Small mobile */
+@media (max-width: 479px) {
+  .hero-content { padding-top: 72px !important; }
+  .nav-inner { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* GTMFlow pills — allow wrapping without overflow */
+  .gtm-flow-root { max-width: 100% !important; padding: 0 !important; }
+
+  /* WhatItIs section */
+  .witl-grid { gap: 32px !important; }
+
+  /* FinalCTA */
+  .final-cta-wrap { padding-top: 64px !important; padding-bottom: 64px !important; }
+}
+
+/* Prevent any fixed-width child from blowing out the viewport */
+@media (max-width: 767px) {
+  .witl-grid > * { min-width: 0; }
+  .wib-outer > *  { min-width: 0; }
 }

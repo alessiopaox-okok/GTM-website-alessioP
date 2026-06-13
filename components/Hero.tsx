@@ -37,7 +37,7 @@ export default function Hero() {
       }}/>
 
       {/* ── hero content ── */}
-      <div style={{
+      <div className="hero-content" style={{
         position: "relative",
         zIndex: 10,
         maxWidth: 1100,

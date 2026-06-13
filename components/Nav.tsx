@@ -21,7 +21,7 @@ export default function Nav() {
       backdropFilter: "blur(14px)",
       borderBottom: scrolled ? "1px solid rgba(56,189,248,0.15)" : "1px solid transparent",
     }}>
-      <nav style={{
+      <nav className="nav-inner" style={{
         maxWidth: 1100, margin: "0 auto", padding: "0 40px",
         height: 64, display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>

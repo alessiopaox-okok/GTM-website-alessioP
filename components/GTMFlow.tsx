@@ -162,7 +162,7 @@ function Step({ children }: { children: ReactNode }) {
 /* ── Main ────────────────────────────────────────────────────────────── */
 export default function GTMFlow() {
   return (
-    <div style={{ width: "100%", maxWidth: 480, margin: "0 auto", padding: "0 8px" }}>
+    <div className="gtm-flow-root" style={{ width: "100%", maxWidth: 480, margin: "0 auto", padding: "0 8px" }}>
 
       {/* ── 01 Map the market ── */}
       <Step>

@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function FinalCTA() {
   return (
-    <section id="contact" style={{ backgroundColor: "#0A0A0F", padding: "96px 24px" }}>
+    <section id="contact" className="sec-pad" style={{ backgroundColor: "#0A0A0F", padding: "96px 24px" }}>
       <div style={{ maxWidth: 1024, margin: "0 auto" }}>
         <div style={{ maxWidth: 520 }}>
 

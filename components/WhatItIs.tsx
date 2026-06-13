@@ -31,6 +31,7 @@ export default function WhatItIs() {
     <section
       ref={sectionRef}
       id="what"
+      className="sec-pad"
       style={{
         position: "relative",
         backgroundColor: "#F0F9FF",
@@ -93,7 +94,7 @@ export default function WhatItIs() {
           </div>
 
           {/* ── Right: sticky copy ── */}
-          <div style={{
+          <div className="witl-right-col" style={{
             position: "sticky",
             top: "50%",
             transform: "translateY(-50%)",
@@ -140,6 +141,16 @@ export default function WhatItIs() {
             grid-template-columns: 1fr;
             gap: 48px;
           }
+          .witl-right-col {
+            position: static !important;
+            top: auto !important;
+            transform: none !important;
+            align-self: auto;
+            order: -1;
+          }
+        }
+        @media (max-width: 767px) {
+          .witl-grid { gap: 32px; }
         }
       `}</style>
     </section>

@@ -23,7 +23,7 @@ const CARDS = [
 
 export default function WhatIBuild() {
   return (
-    <section id="work" style={{
+    <section id="work" className="sec-pad" style={{
       backgroundColor: "#fff",
       borderTop: "1px solid rgba(0,0,0,0.06)",
       padding: "96px 24px",
@@ -110,7 +110,7 @@ export default function WhatIBuild() {
           </div>
 
           {/* ── right: Signal-to-Pipeline illustration ── */}
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className="signal-pipeline-wrap" style={{ display: "flex", alignItems: "center" }}>
             <SignalToPipeline />
           </div>
 
@@ -126,7 +126,11 @@ export default function WhatIBuild() {
         }
         .wib-card:hover { background: #F8FCFF !important; }
         @media (max-width: 860px) {
-          .wib-outer { grid-template-columns: 1fr; }
+          .wib-outer { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media (max-width: 767px) {
+          .signal-pipeline-wrap { display: none !important; }
+          .wib-outer { gap: 28px; }
         }
       `}</style>
     </section>

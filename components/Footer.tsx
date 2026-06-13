@@ -3,7 +3,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#0A0A0F", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "32px 24px" }}>
-      <div style={{ maxWidth: 1024, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24 }}>
+      <div className="footer-inner" style={{ maxWidth: 1024, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24 }}>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <div style={{
@@ -19,8 +19,8 @@ export default function Footer() {
           <p style={{ fontSize: 11, color: "#374151", paddingLeft: 2 }}>GTM systems for founder-led brands.</p>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
-          <nav style={{ display: "flex", gap: 24 }}>
+        <div className="footer-right" style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
+          <nav className="footer-nav" style={{ display: "flex", gap: 24 }}>
             {[["Work","#work"],["Process","#process"],["Resources","#resources"],["Contact","#contact"]].map(([label, href]) => (
               <a key={label} href={href} className="footer-link"
                 style={{ fontSize: 12, color: "#374151", textDecoration: "none", transition: "color 0.15s" }}>
@@ -38,6 +38,11 @@ export default function Footer() {
       <style>{`
         .footer-link:hover { color: #9CA3AF !important; }
         .footer-cta:hover  { background-color: rgba(255,255,255,0.08) !important; }
+        @media (max-width: 767px) {
+          .footer-inner { flex-direction: column !important; align-items: flex-start !important; gap: 28px !important; }
+          .footer-nav   { flex-wrap: wrap !important; gap: 16px !important; }
+          .footer-right { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+        }
       `}</style>
     </footer>
   );

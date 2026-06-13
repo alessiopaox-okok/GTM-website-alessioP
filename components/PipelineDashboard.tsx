@@ -172,6 +172,7 @@ function SubStat({ label, value }: { label: string; value: string }) {
 export default function PipelineDashboard() {
   return (
     <div
+      className="pipeline-dashboard"
       style={{
         position: "absolute",
         right: "clamp(16px, 4vw, 60px)",
