@@ -18,7 +18,7 @@ export default function FinalCTA() {
           </p>
 
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Button href="#contact" variant="accent" size="lg">Book a call</Button>
+            <Button href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat" variant="accent" size="lg">Book a call</Button>
             <Button href="/contact" variant="ghost-dark" size="lg">Send a message</Button>
           </div>
 

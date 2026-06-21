@@ -73,10 +73,9 @@ export default function Hero() {
             color: "#0C111D",
             marginBottom: 28,
           }}>
-            Turn messy wholesale<br />
-            into a repeatable<br />
+            Upgrade your outbound.<br />
             <span style={{ color:"#38BDF8", fontStyle:"italic" }}>
-              revenue system.
+              Expand your distribution.
             </span>
           </h1>
 
@@ -96,7 +95,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <div style={{ display:"flex", gap:14, flexWrap:"wrap", alignItems:"center", marginBottom:48 }}>
-            <a href="#contact" className="hero-cta-primary">
+            <a href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat" className="hero-cta-primary">
               Book a call
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink:0 }}>
                 <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>

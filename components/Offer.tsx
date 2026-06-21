@@ -28,7 +28,7 @@ export default function Offer() {
               up the chaos, and build the first version of a repeatable growth
               system.
             </p>
-            <Button href="#contact" variant="primary" size="lg">
+            <Button href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat" variant="primary" size="lg">
               Book a call
             </Button>
           </div>

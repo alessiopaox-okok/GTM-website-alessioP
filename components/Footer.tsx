@@ -16,7 +16,7 @@ export default function Footer() {
               Distribution Lab
             </span>
           </div>
-          <p style={{ fontSize: 11, color: "#374151", paddingLeft: 2 }}>GTM systems for founder-led brands.</p>
+          <p style={{ fontSize: 11, color: "#374151", paddingLeft: 2 }}>GTM systems for product brands.</p>
         </div>
 
         <div className="footer-right" style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
@@ -28,7 +28,7 @@ export default function Footer() {
               </a>
             ))}
           </nav>
-          <a href="#contact" className="footer-cta"
+          <a href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat" className="footer-cta"
             style={{ fontSize: 12, fontWeight: 500, color: "#ffffff", textDecoration: "none", padding: "8px 16px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.04)", transition: "background-color 0.15s" }}>
             Book a call
           </a>
