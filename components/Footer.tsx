@@ -21,7 +21,7 @@ export default function Footer() {
 
         <div className="footer-right" style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
           <nav className="footer-nav" style={{ display: "flex", gap: 24 }}>
-            {[["Work","#work"],["Process","#process"],["Resources","#resources"],["Contact","#contact"]].map(([label, href]) => (
+            {[["Work","#work"],["Process","#process"],["Contact us","/contact"]].map(([label, href]) => (
               <a key={label} href={href} className="footer-link"
                 style={{ fontSize: 12, color: "#374151", textDecoration: "none", transition: "color 0.15s" }}>
                 {label}
@@ -30,7 +30,7 @@ export default function Footer() {
           </nav>
           <a href="#contact" className="footer-cta"
             style={{ fontSize: 12, fontWeight: 500, color: "#ffffff", textDecoration: "none", padding: "8px 16px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.04)", transition: "background-color 0.15s" }}>
-            Book a GTM Audit
+            Book a call
           </a>
         </div>
 

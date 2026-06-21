@@ -29,7 +29,7 @@ export default function Offer() {
               system.
             </p>
             <Button href="#contact" variant="primary" size="lg">
-              Book a GTM Audit
+              Book a call
             </Button>
           </div>
 

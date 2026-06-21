@@ -10,7 +10,7 @@ export default function FinalCTA() {
             Ready to start
           </p>
           <h2 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#ffffff", lineHeight: 1.15, marginBottom: 20 }}>
-            Want a clearer GTM system?
+            Want a clearer wholesale system?
           </h2>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: "#6B7280", marginBottom: 40, maxWidth: 400 }}>
             Send us your current growth setup. We'll help you see what is
@@ -18,8 +18,8 @@ export default function FinalCTA() {
           </p>
 
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Button href="#contact" variant="accent" size="lg">Book a GTM Audit</Button>
-            <Button href="mailto:hello@distributionlab.co" variant="ghost-dark" size="lg">Send a message</Button>
+            <Button href="#contact" variant="accent" size="lg">Book a call</Button>
+            <Button href="/contact" variant="ghost-dark" size="lg">Send a message</Button>
           </div>
 
         </div>

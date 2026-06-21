@@ -113,7 +113,7 @@ export default function WhatItIs() {
               fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1.12,
               color: "#0A0A0F", marginBottom: 20, maxWidth: 400,
             }}>
-              Bring your products to market with GTM systems.
+              Bring your products to market with AI-native outreach systems.
             </h2>
 
             <p style={{

@@ -97,7 +97,7 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display:"flex", gap:14, flexWrap:"wrap", alignItems:"center", marginBottom:48 }}>
             <a href="#contact" className="hero-cta-primary">
-              Book a GTM Audit
+              Book a call
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink:0 }}>
                 <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -107,45 +107,6 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* social proof */}
-          <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-            {/* divider */}
-            <div style={{ width:48, height:1, backgroundColor:"rgba(0,0,0,0.08)", marginBottom:4 }}/>
-
-            <div style={{ display:"flex", alignItems:"center", gap:16, flexWrap:"wrap" }}>
-              {/* avatar stack */}
-              <div style={{ display:"flex", alignItems:"center" }}>
-                {[
-                  "https://randomuser.me/api/portraits/women/44.jpg",
-                  "https://randomuser.me/api/portraits/men/32.jpg",
-                  "https://randomuser.me/api/portraits/women/68.jpg",
-                ].map((src, i) => (
-                  <img key={i} src={src} alt="founder"
-                    width={28} height={28}
-                    style={{
-                      width:28, height:28, borderRadius:"50%",
-                      border:"2px solid #fff",
-                      marginLeft: i===0?0:-8,
-                      objectFit:"cover",
-                      position:"relative", zIndex:3-i,
-                      display:"block",
-                    }}
-                  />
-                ))}
-              </div>
-
-              <span style={{ fontSize:12, color:"#94A3B8", fontWeight:400 }}>
-                Built for founder-led consumer brands
-              </span>
-
-              <span style={{ width:1, height:12, backgroundColor:"#E2E8F0" }}/>
-
-              <span style={{ fontSize:12, color:"#64748B" }}>
-                <strong style={{ color:"#0C111D", fontWeight:600 }}>22</strong> opportunities ·{" "}
-                <strong style={{ color:"#0C111D", fontWeight:600 }}>45 days</strong>
-              </span>
-            </div>
-          </div>
 
         </div>
       </div>
