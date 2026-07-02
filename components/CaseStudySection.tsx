@@ -58,17 +58,6 @@ export default function CaseStudySection() {
           ))}
         </div>
 
-        {/* honesty note */}
-        <p style={{
-          marginTop: 48,
-          fontSize: "0.875rem", lineHeight: 1.75, color: "#6B7280",
-          maxWidth: 560,
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-          paddingTop: 28,
-        }}>
-          I&apos;m early — this is one of my first client engagements, and I&apos;d rather show you one real result clearly than imply a track record I don&apos;t have yet.
-        </p>
-
         {/* link */}
         <a href="/contact" className="cs-link">
           Get the full case study
