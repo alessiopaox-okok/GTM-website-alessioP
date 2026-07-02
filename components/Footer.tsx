@@ -21,7 +21,7 @@ export default function Footer() {
 
         <div className="footer-right" style={{ display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
           <nav className="footer-nav" style={{ display: "flex", gap: 24 }}>
-            {[["Work","#work"],["Process","#process"],["Contact us","/contact"]].map(([label, href]) => (
+            {[["How it works","#work"],["About","#contact"],["Contact","/contact"]].map(([label, href]) => (
               <a key={label} href={href} className="footer-link"
                 style={{ fontSize: 12, color: "#374151", textDecoration: "none", transition: "color 0.15s" }}>
                 {label}

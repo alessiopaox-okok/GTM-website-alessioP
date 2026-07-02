@@ -113,14 +113,14 @@ export default function WhatItIs() {
               fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1.12,
               color: "#0A0A0F", marginBottom: 20, maxWidth: 400,
             }}>
-              Bring your products to market with AI-native outbound systems.
+              Bring your products to market with modern outbound systems.
             </h2>
 
             <p style={{
               fontSize: "0.9375rem", lineHeight: 1.85, color: "#64748B",
               maxWidth: 430,
             }}>
-              Distribution Lab builds the operating layer founder-led brands need
+              Distribution Lab builds the operating layer product brands need
               to identify real market opportunity, prioritize the right segments,
               and create a commercial motion that compounds over time.
             </p>

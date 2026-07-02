@@ -9,7 +9,7 @@ const PROOF = [
   },
   {
     stat: "Clay · Instantly · Attio · Apify",
-    detail: "AI-powered GTM stack",
+    detail: "modern GTM stack",
   },
 ];
 

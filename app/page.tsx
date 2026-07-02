@@ -1,7 +1,10 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import WhatItIs from "@/components/WhatItIs";
+import PainSection from "@/components/PainSection";
 import WhatIBuild from "@/components/WhatIBuild";
+import WhyOnePerson from "@/components/WhyOnePerson";
+import CaseStudySection from "@/components/CaseStudySection";
+import AboutSection from "@/components/AboutSection";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -11,8 +14,11 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <WhatItIs />
+        <PainSection />
         <WhatIBuild />
+        <WhyOnePerson />
+        <CaseStudySection />
+        <AboutSection />
         <FinalCTA />
       </main>
       <Footer />

@@ -22,7 +22,7 @@ export default function Nav() {
       borderBottom: scrolled ? "1px solid rgba(56,189,248,0.15)" : "1px solid transparent",
     }}>
       <nav className="nav-inner" style={{
-        maxWidth: 1100, margin: "0 auto", padding: "0 40px",
+        maxWidth: "100%", margin: "0", padding: "0 40px",
         height: 64, display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
 
@@ -43,7 +43,7 @@ export default function Nav() {
 
         {/* Desktop */}
         <div className="hidden md:flex" style={{ alignItems: "center", gap: 36 }}>
-          {[["Work","#work"],["How it works","#what"]].map(([label, href]) => (
+          {[["How it works","#work"],["About","#contact"]].map(([label, href]) => (
             <a key={label} href={href} className="nav-link"
               style={{ fontSize: 14, color: "#64748B", textDecoration: "none", transition: "color 0.15s", fontWeight: 500 }}>
               {label}
@@ -78,8 +78,8 @@ export default function Nav() {
 
       {menuOpen && (
         <div style={{ backgroundColor: "rgba(240,247,255,0.97)", backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(56,189,248,0.1)", padding: "8px 40px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
-          <a href="#work"      style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#what"   style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>How it works</a>
+          <a href="#work"    style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>How it works</a>
+          <a href="#contact" style={{ fontSize: 14, color: "#64748B", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>About</a>
           <a href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat"
             style={{ fontSize: 13, fontWeight: 600, color: "#fff", textDecoration: "none", padding: "10px 18px", borderRadius: 9, backgroundColor: "#38BDF8", textAlign: "center" }}
             onClick={() => setMenuOpen(false)}>

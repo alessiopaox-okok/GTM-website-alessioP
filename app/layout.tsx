@@ -23,13 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
 */
 
 export const metadata: Metadata = {
-  title: "Distribution Lab — GTM Systems for Founder-Led Brands",
+  title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
   description:
-    "Distribution Lab helps founder-led brands turn scattered commercial activity into a structured GTM operating system — across outbound, CRM, follow-ups, and pipeline.",
-  keywords: ["GTM systems", "go-to-market", "sales systems", "outbound", "CRM", "founder-led growth"],
+    "Distribution Lab builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
+  keywords: ["wholesale growth", "outbound systems", "go-to-market", "CRM", "distribution"],
   openGraph: {
-    title: "Distribution Lab — GTM Systems for Founder-Led Brands",
-    description: "Turn messy sales activity into a repeatable GTM system.",
+    title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
+    description: "One founder, hands-on. No account managers in between.",
     type: "website",
   },
 };
