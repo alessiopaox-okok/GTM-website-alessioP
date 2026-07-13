@@ -10,7 +10,7 @@ export default function Process() {
       <div style={{ maxWidth: 1024, margin: "0 auto" }}>
 
         <p style={{ fontSize: 11, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}>
-          How Ada Growth works
+          How Distribution Lab works
         </p>
         <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 600, letterSpacing: "-0.02em", color: "#0A0A0F", lineHeight: 1.2, marginBottom: 64 }}>
           Three steps.<br />No fluff.

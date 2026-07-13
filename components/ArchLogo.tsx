@@ -11,7 +11,7 @@ export default function ArchLogo({ size = 48 }: { size?: number }) {
       viewBox="0 0 110 72"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Ada Growth"
+      aria-label="Distribution Lab"
     >
       <defs>
         <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="0%">

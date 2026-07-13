@@ -12,7 +12,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 /*
-  Font system — Ada Growth
+  Font system — Distribution Lab
   ─────────────────────────────────────────────────────────────────
   --font-sans  → Geist Sans   (logo, headlines, body)
   --font-mono  → Geist Mono   (01/02/03 accents, eyebrows, tags)
@@ -24,12 +24,12 @@ const jetbrainsMono = JetBrains_Mono({
 */
 
 export const metadata: Metadata = {
-  title: "Ada Growth — Wholesale Growth Systems for Product Brands",
+  title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
   description:
-    "Ada Growth builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
+    "Distribution Lab builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
   keywords: ["wholesale growth", "outbound systems", "go-to-market", "CRM", "distribution"],
   openGraph: {
-    title: "Ada Growth — Wholesale Growth Systems for Product Brands",
+    title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
     description: "One founder, hands-on. No account managers in between.",
     type: "website",
   },

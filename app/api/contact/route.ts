@@ -19,14 +19,14 @@ export async function POST(req: NextRequest) {
   });
 
   await transporter.sendMail({
-    from: `"Ada Growth Contact" <${process.env.GMAIL_USER}>`,
+    from: `"Distribution Lab Contact" <${process.env.GMAIL_USER}>`,
     to: "alessio@distribution-lab.com",
     replyTo: email,
     subject: `New message from ${name}`,
     html: `
       <div style="font-family:sans-serif;max-width:560px;color:#0A0A0F">
         <p style="font-size:11px;font-weight:700;color:#38BDF8;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:24px">
-          Ada Growth · New contact form submission
+          Distribution Lab · New contact form submission
         </p>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>

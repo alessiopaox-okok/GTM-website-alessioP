@@ -35,7 +35,7 @@ export default function ContactPage() {
         <a href="/" style={{ textDecoration: "none", display: "inline-flex", alignItems: "flex-end", gap: 9 }}>
           <Logo height={26} />
           <span style={{ fontSize: 15, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.025em", lineHeight: 1 }}>
-            Ada Growth
+            Distribution Lab
           </span>
         </a>
       </header>
@@ -199,7 +199,7 @@ export default function ContactPage() {
       {/* simple footer line */}
       <div style={{ padding: "20px 40px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <p style={{ fontSize: 11, color: "#374151", margin: 0 }}>
-          © {new Date().getFullYear()} Ada Growth
+          © {new Date().getFullYear()} Distribution Lab
         </p>
       </div>
     </div>

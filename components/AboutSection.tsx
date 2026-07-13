@@ -56,7 +56,7 @@ export default function AboutSection() {
             </p>
 
             <p style={{ fontSize: "0.9375rem", lineHeight: 1.85, color: "#64748B", margin: 0 }}>
-              I started Ada Growth because too many product brands know they could grow through retailers, clinics, studios, and specialty stockists — but the process is manual, inconsistent, and founder-dependent. I build the system behind that motion.
+              I started Distribution Lab because too many product brands know they could grow through retailers, clinics, studios, and specialty stockists — but the process is manual, inconsistent, and founder-dependent. I build the system behind that motion.
             </p>
 
             <a href="https://cal.eu/alessio-paoletti-klzr4d/wholesale-chat" className="about-cta">
