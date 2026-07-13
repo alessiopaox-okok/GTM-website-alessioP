@@ -37,7 +37,7 @@ export default function Nav() {
             lineHeight: 1,
             userSelect: "none",
           }}>
-            Distribution Lab
+            Ada Growth
           </span>
         </a>
 

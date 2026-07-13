@@ -105,7 +105,7 @@ export default function WhatItIs() {
               fontSize: 11, fontWeight: 700, color: "#38BDF8",
               letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 20,
             }}>
-              What Distribution Lab Does
+              What Ada Growth Does
             </p>
 
             <h2 style={{
@@ -120,7 +120,7 @@ export default function WhatItIs() {
               fontSize: "0.9375rem", lineHeight: 1.85, color: "#64748B",
               maxWidth: 430,
             }}>
-              Distribution Lab builds the operating layer product brands need
+              Ada Growth builds the operating layer product brands need
               to identify real market opportunity, prioritize the right segments,
               and create a commercial motion that compounds over time.
             </p>

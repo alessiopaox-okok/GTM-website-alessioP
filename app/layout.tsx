@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -11,7 +12,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 /*
-  Font system — Distribution Lab
+  Font system — Ada Growth
   ─────────────────────────────────────────────────────────────────
   --font-sans  → Geist Sans   (logo, headlines, body)
   --font-mono  → Geist Mono   (01/02/03 accents, eyebrows, tags)
@@ -23,12 +24,12 @@ const jetbrainsMono = JetBrains_Mono({
 */
 
 export const metadata: Metadata = {
-  title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
+  title: "Ada Growth — Wholesale Growth Systems for Product Brands",
   description:
-    "Distribution Lab builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
+    "Ada Growth builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
   keywords: ["wholesale growth", "outbound systems", "go-to-market", "CRM", "distribution"],
   openGraph: {
-    title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
+    title: "Ada Growth — Wholesale Growth Systems for Product Brands",
     description: "One founder, hands-on. No account managers in between.",
     type: "website",
   },
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         style={{ backgroundColor: "#ffffff", color: "#0A0A0F" }}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

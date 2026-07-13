@@ -13,7 +13,7 @@ export default function Footer() {
           } as React.CSSProperties}>
             <Logo height={28} />
             <span style={{ fontSize: 16, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.025em", lineHeight: 1, userSelect: "none" }}>
-              Distribution Lab
+              Ada Growth
             </span>
           </div>
           <p style={{ fontSize: 11, color: "#374151", paddingLeft: 2 }}>GTM systems for product brands.</p>

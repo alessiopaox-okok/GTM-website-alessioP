@@ -21,7 +21,7 @@ export default function Logo({ height = 40, className, style }: LogoProps) {
         viewBox="0 0 96 68"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Distribution Lab"
+        aria-label="Ada Growth"
         style={{ flexShrink: 0 }}
       >
         <defs>
