@@ -65,7 +65,7 @@ export default function Schematic({ variant }: { variant: "all" | Branch }) {
       <path className="trunk" d="M 24 140 H 90" />
       <path className={c.branchClass} d={c.path} style={{ strokeWidth: 2.4 }} />
       <circle className="node" cx={c.cx} cy={c.cy} r="5" />
-      <text className="label" x="352" y={c.labelY} style={{ fill: "#1C201C", fontWeight: 600 }}>
+      <text className="label" x="352" y={c.labelY} style={{ fill: "#0F172A", fontWeight: 700 }}>
         {c.label}
       </text>
     </svg>

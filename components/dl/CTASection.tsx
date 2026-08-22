@@ -12,7 +12,7 @@ export default function CTASection({
   return (
     <section className="cta-section">
       <div className="container">
-        <p className="eyebrow" style={{ color: "#A9AF9E" }}>{eyebrow}</p>
+        <p className="eyebrow" style={{ color: "var(--muted-on-dark)" }}>{eyebrow}</p>
         <h2>{heading}</h2>
         <p>{body}</p>
         <a href="mailto:hello@distribution-lab.com" className="btn btn-primary">{label}</a>

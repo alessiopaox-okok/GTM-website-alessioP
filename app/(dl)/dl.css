@@ -1,32 +1,27 @@
 /* =========================================================
-   DISTRIBUTION LAB — design tokens
-   Concept: a schematic routing diagram. One practice, one
-   trunk line, three branches (GTM / DTC / SaaS). Labels read
-   like circuit annotations — plain, technical, unhurried.
+   DISTRIBUTION LAB — new-pages design tokens
+   Reuses the site's existing brand system (blue accent, Geist
+   Sans/Mono, dark inverted sections) rather than a separate
+   palette, so these routes read as the same product as
+   /contact and the rest of the site.
 
    Everything here is scoped under .dl so it can't leak into
-   the rest of the site (which has its own design system).
+   unrelated routes.
    ========================================================= */
 
 .dl {
-  /* color */
-  --bg: #EDEAE1;         /* warm bone paper, cooler than the cliché cream */
-  --bg-panel: #E2DED2;   /* recessed panel / card bg */
-  --bg-dark: #1B211E;    /* ink-black used for footer + inverted sections */
-  --ink: #1C201C;        /* primary text, warm near-black */
-  --ink-soft: #52584F;   /* secondary text */
-  --ink-faint: #8A8F81;  /* tertiary / captions */
-  --line: #C7C1AE;       /* hairline dividers */
-  --line-soft: #D9D4C4;
-  --teal: #2B6E62;       /* primary accent — "channel" / routing lines */
-  --teal-deep: #1E4E46;
-  --rust: #B75B3B;       /* secondary accent, used sparingly */
-  --paper-on-dark: #EDEAE1;
-
-  /* type */
-  --font-display: var(--font-dl-display), 'Iowan Old Style', serif;
-  --font-body: var(--font-dl-body), -apple-system, sans-serif;
-  --font-mono: var(--font-dl-mono), ui-monospace, monospace;
+  /* color — pulled from the site's existing brand tokens */
+  --bg: #ffffff;
+  --bg-panel: #F0F7FF;    /* light icy-blue panel / hover, matches nav mist */
+  --bg-dark: #0A0A0F;     /* inverted sections — matches footer + /contact */
+  --ink: #0F172A;         /* slate-900, primary text on light bg */
+  --ink-soft: #64748B;    /* slate-500, secondary text */
+  --ink-faint: #94A3B8;   /* slate-400, tertiary / captions */
+  --line: #E2E8F0;        /* slate-200 hairline */
+  --accent: var(--color-accent, #38BDF8);
+  --accent-deep: #0EA5E9;
+  --paper-on-dark: #ffffff;
+  --muted-on-dark: #94A3B8;
 
   --step: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
 
@@ -34,7 +29,7 @@
   min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: var(--step);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -50,20 +45,14 @@
 
 .dl a { color: inherit; }
 
-.dl h1, .dl h2, .dl h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.05;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
+.dl h1, .dl h2, .dl h3 { margin: 0; }
 
 .dl .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--teal-deep);
+  color: var(--accent-deep);
 }
 
 .dl .container {
@@ -78,9 +67,9 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(237, 234, 225, 0.88);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(240, 247, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
 }
 
 .dl .site-nav .container {
@@ -91,26 +80,28 @@
 }
 
 .dl .logo {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   text-decoration: none;
   color: var(--ink);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
 }
 
-.dl .logo .dot { color: var(--teal); }
+.dl .logo-wordmark {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  user-select: none;
+}
 
 .dl .nav-links {
   display: flex;
   gap: clamp(14px, 2vw, 28px);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .dl .nav-links a {
@@ -124,10 +115,10 @@
 .dl .nav-links a:hover,
 .dl .nav-links a[aria-current="page"] {
   color: var(--ink);
-  border-color: var(--teal);
+  border-color: var(--accent);
 }
 
-.dl .nav-links a[aria-current="page"] { color: var(--teal-deep); }
+.dl .nav-links a[aria-current="page"] { color: var(--accent-deep); }
 
 /* breadcrumb strip on subpages */
 .dl .channel-strip {
@@ -146,7 +137,7 @@
   text-transform: uppercase;
   color: var(--ink-faint);
 }
-.dl .channel-strip .current { color: var(--teal-deep); }
+.dl .channel-strip .current { color: var(--accent-deep); }
 .dl .channel-strip .sep { color: var(--line); }
 
 /* ---------- hero ---------- */
@@ -196,7 +187,7 @@
 .dl .schematic .trunk,
 .dl .schematic .branch {
   fill: none;
-  stroke: var(--teal);
+  stroke: var(--accent);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-dasharray: 400;
@@ -208,13 +199,13 @@
 
 .dl .schematic .node {
   fill: var(--bg);
-  stroke: var(--teal);
+  stroke: var(--accent);
   stroke-width: 1.6;
   opacity: 0;
   animation: dlAppear 0.4s ease forwards;
   animation-delay: 1.3s;
 }
-.dl .schematic .node.origin { fill: var(--teal); animation-delay: 0.05s; }
+.dl .schematic .node.origin { fill: var(--accent); animation-delay: 0.05s; }
 
 .dl .schematic .label {
   font-family: var(--font-mono);
@@ -235,28 +226,29 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-decoration: none;
-  padding: 13px 22px;
-  border-radius: 2px;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  padding: 12px 22px;
+  border-radius: 9px;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .dl .btn-primary {
-  background: var(--ink);
-  color: var(--bg);
-  border: 1px solid var(--ink);
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
 }
-.dl .btn-primary:hover { background: var(--teal-deep); border-color: var(--teal-deep); transform: translateY(-1px); }
+.dl .btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); box-shadow: 0 2px 14px rgba(56, 189, 248, 0.45); transform: translateY(-1px); }
 
 .dl .btn-ghost {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--line);
 }
-.dl .btn-ghost:hover { border-color: var(--ink); transform: translateY(-1px); }
+.dl .btn-ghost:hover { border-color: var(--ink-soft); transform: translateY(-1px); }
 
 /* ---------- intro / throughline ---------- */
 
@@ -283,6 +275,8 @@
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 @media (max-width: 780px) {
@@ -307,13 +301,12 @@
 .dl .route-card .index {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--teal-deep);
+  color: var(--accent-deep);
   letter-spacing: 0.08em;
 }
 
 .dl .route-card h3 {
   font-size: 1.5rem;
-  font-weight: 600;
 }
 
 .dl .route-card p {
@@ -325,7 +318,7 @@
 .dl .route-card .go {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--teal-deep);
+  color: var(--accent-deep);
   letter-spacing: 0.04em;
 }
 
@@ -356,8 +349,10 @@
 }
 
 .dl .proof-item .num {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: 2.2rem;
+  letter-spacing: -0.025em;
   color: var(--paper-on-dark);
 }
 
@@ -365,7 +360,7 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: #A9AF9E;
+  color: var(--muted-on-dark);
   margin-top: 6px;
 }
 
@@ -373,7 +368,7 @@
   margin-top: 20px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #7C8271;
+  color: #7C8698;
   letter-spacing: 0.04em;
 }
 
@@ -422,13 +417,12 @@
 }
 .dl .step .n {
   font-family: var(--font-mono);
-  color: var(--teal-deep);
+  color: var(--accent-deep);
   font-size: 0.9rem;
   padding-top: 3px;
 }
 .dl .step h3 {
   font-size: 1.15rem;
-  font-weight: 600;
   margin-bottom: 6px;
 }
 .dl .step p { color: var(--ink-soft); margin: 0; max-width: 60ch; }
@@ -444,7 +438,6 @@
 }
 .dl .two-col h3 {
   font-size: 1.05rem;
-  font-weight: 600;
   margin-bottom: 14px;
 }
 .dl .two-col ul {
@@ -464,18 +457,20 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--teal);
+  color: var(--accent);
 }
 
 /* testimonial */
 .dl .testimonial {
   background: var(--bg-panel);
-  border-left: 3px solid var(--teal);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
   padding: 28px 32px;
   max-width: 68ch;
 }
 .dl .testimonial p {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 1.25rem;
   font-style: italic;
   color: var(--ink);
@@ -503,7 +498,7 @@
   margin: 0 auto;
 }
 .dl .cta-section p {
-  color: #B7BCAA;
+  color: var(--muted-on-dark);
   margin-top: 14px;
 }
 .dl .cta-section .btn-primary {
@@ -511,24 +506,26 @@
   background: var(--paper-on-dark);
   color: var(--ink);
   border-color: var(--paper-on-dark);
+  box-shadow: none;
 }
-.dl .cta-section .btn-primary:hover { background: var(--teal); border-color: var(--teal); color: var(--paper-on-dark); }
+.dl .cta-section .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* footer */
 .dl .site-footer {
   background: var(--bg-dark);
-  color: #8A9081;
+  color: var(--muted-on-dark);
   padding: 28px 0 36px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
-  border-top: 1px solid #2A322C;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .dl .site-footer .container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
 }
-.dl .site-footer a { color: #B7BCAA; text-decoration: none; }
+.dl .site-footer .logo-wordmark { color: var(--paper-on-dark); }
+.dl .site-footer a { color: var(--muted-on-dark); text-decoration: none; }
 .dl .site-footer a:hover { color: var(--paper-on-dark); }

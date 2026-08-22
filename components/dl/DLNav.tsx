@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/Logo";
 
 const links = [
   { href: "/distribution-gtm", label: "GTM" },
@@ -16,7 +17,8 @@ export default function DLNav() {
     <nav className="site-nav">
       <div className="container">
         <Link href="/" className="logo">
-          <span className="dot">●</span> Distribution Lab
+          <Logo height={28} />
+          <span className="logo-wordmark">Distribution Lab</span>
         </Link>
         <div className="nav-links">
           {links.map((link) => (
