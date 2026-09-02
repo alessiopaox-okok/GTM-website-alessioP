@@ -1,73 +1,44 @@
-type Branch = "gtm" | "dtc" | "saas";
+const STOPS = [
+  { x: 150, y: 70, label: "TARGET", labelDy: -16 },
+  { x: 250, y: 150, label: "OUTREACH", labelDy: 24 },
+  { x: 350, y: 70, label: "CONVERSATIONS", labelDy: -16 },
+  { x: 450, y: 150, label: "PIPELINE", labelDy: 24 },
+];
 
-const branchConfig: Record<
-  Branch,
-  { branchClass: string; path: string; cx: number; cy: number; labelY: number; label: string; aria: string }
-> = {
-  gtm: {
-    branchClass: "branch b1",
-    path: "M 90 140 C 130 140, 140 40, 190 40 H 340",
-    cx: 340,
-    cy: 40,
-    labelY: 44,
-    label: "GTM",
-    aria: "Routing diagram, GTM branch highlighted",
-  },
-  dtc: {
-    branchClass: "branch b2",
-    path: "M 90 140 H 340",
-    cx: 340,
-    cy: 140,
-    labelY: 144,
-    label: "DTC",
-    aria: "Routing diagram, DTC branch highlighted",
-  },
-  saas: {
-    branchClass: "branch b3",
-    path: "M 90 140 C 130 140, 140 240, 190 240 H 340",
-    cx: 340,
-    cy: 240,
-    labelY: 244,
-    label: "SAAS",
-    aria: "Routing diagram, SaaS branch highlighted",
-  },
-};
-
-export default function Schematic({ variant }: { variant: "all" | Branch }) {
-  if (variant === "all") {
-    return (
-      <svg
-        className="schematic"
-        viewBox="0 0 420 280"
-        role="img"
-        aria-label="A single line branching into three paths, labeled GTM, DTC, and SaaS"
-      >
-        <circle className="node origin" cx="24" cy="140" r="5" />
-        <path className="trunk" d="M 24 140 H 90" />
-        <path className="branch b1" d="M 90 140 C 130 140, 140 40, 190 40 H 340" />
-        <path className="branch b2" d="M 90 140 H 340" />
-        <path className="branch b3" d="M 90 140 C 130 140, 140 240, 190 240 H 340" />
-        <circle className="node" cx="340" cy="40" r="4" />
-        <circle className="node" cx="340" cy="140" r="4" />
-        <circle className="node" cx="340" cy="240" r="4" />
-        <text className="label" x="352" y="44">GTM</text>
-        <text className="label" x="352" y="144">DTC</text>
-        <text className="label" x="352" y="244">SAAS</text>
-      </svg>
-    );
-  }
-
-  const c = branchConfig[variant];
-
+export default function Schematic() {
   return (
-    <svg className="schematic" viewBox="0 0 420 280" role="img" aria-label={c.aria}>
-      <circle className="node origin" cx="24" cy="140" r="5" />
-      <path className="trunk" d="M 24 140 H 90" />
-      <path className={c.branchClass} d={c.path} style={{ strokeWidth: 2.4 }} />
-      <circle className="node" cx={c.cx} cy={c.cy} r="5" />
-      <text className="label" x="352" y={c.labelY} style={{ fill: "#0F172A", fontWeight: 700 }}>
-        {c.label}
-      </text>
+    <svg
+      className="schematic"
+      viewBox="0 0 480 200"
+      role="img"
+      aria-label="A line moving from targeting through outreach and conversations into pipeline"
+    >
+      <circle className="node origin" cx="16" cy="150" r="5" />
+      <path className="trunk" d="M 16 150 H 50" />
+      <path
+        className="branch b1"
+        d="M 50 150 C 90 150, 100 70, 150 70 C 200 70, 210 150, 250 150 C 300 150, 310 70, 350 70 C 400 70, 410 150, 450 150"
+      />
+      {STOPS.map((s, i) => (
+        <g key={s.label}>
+          <circle
+            className="node"
+            cx={s.x}
+            cy={s.y}
+            r="4"
+            style={{ animationDelay: `${1.0 + i * 0.18}s` }}
+          />
+          <text
+            className="label"
+            x={s.x}
+            y={s.y + s.labelDy}
+            textAnchor="middle"
+            style={{ animationDelay: `${1.1 + i * 0.18}s` }}
+          >
+            {s.label}
+          </text>
+        </g>
+      ))}
     </svg>
   );
 }

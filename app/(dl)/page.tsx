@@ -1,13 +1,16 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Schematic from "@/components/dl/Schematic";
-import ProofSection from "@/components/dl/ProofSection";
+import Steps from "@/components/dl/Steps";
+import Marquee from "@/components/dl/Marquee";
 import CTASection from "@/components/dl/CTASection";
 
+const CAL_URL = "https://cal.eu/alessio-paoletti-klzr4d/30min";
+
 export const metadata: Metadata = {
-  title: "Distribution Lab — Distribution, engineered.",
+  title: "Distribution Lab — Outbound & GTM Systems",
   description:
-    "Alessio Paoletti builds outbound and growth systems for GTM consulting, wholesale distribution, and SaaS growth.",
+    "Outbound and GTM systems for SaaS sales teams and consumer brands, from pipeline infrastructure to wholesale outbound.",
 };
 
 export default function Home() {
@@ -16,76 +19,111 @@ export default function Home() {
       <header className="hero">
         <div className="container hero-grid">
           <div>
-            <p className="eyebrow">Independent GTM &amp; growth systems</p>
+            <p className="eyebrow">Independent GTM operator</p>
             <h1>Distribution, engineered.</h1>
             <p className="subhead">
-              I help companies build the systems that get their product, service, or platform in
-              front of the right buyers — a wholesale channel, a SaaS growth engine, or a
-              go-to-market strategy built from scratch.
+              I build outbound and go-to-market systems for SaaS teams and consumer brands, from
+              sales pipeline infrastructure to wholesale growth.
             </p>
             <div className="hero-actions">
-              <a href="#routes" className="btn btn-primary">See what fits you</a>
-              <a href="#proof" className="btn btn-ghost">See the results</a>
+              <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                Start a conversation
+              </a>
             </div>
           </div>
           <div>
-            <Schematic variant="all" />
+            <Schematic />
           </div>
         </div>
       </header>
 
-      <section className="intro">
+      <section className="section" id="what-i-build" style={{ borderTop: "none", paddingTop: 0 }}>
         <div className="container">
-          <p>
-            <strong>I&apos;m Alessio, founder of Distribution Lab.</strong> I build outbound and
-            growth systems — not one-off lists or campaigns, but repeatable infrastructure that
-            keeps generating pipeline long after I&apos;ve moved on to the next thing. I work
-            across three areas, depending on what a company actually needs:
-          </p>
+          <div className="section-head">
+            <p className="eyebrow">What I build</p>
+            <h2>Commercial systems built around the way you sell.</h2>
+          </div>
+          <Steps
+            interactive
+            steps={[
+              {
+                n: "01",
+                label: "For SaaS and sales teams",
+                title: "Outbound and pipeline systems",
+                body: "For SaaS companies and sales teams that want to spend more time in conversations and less time building lists. I build the targeting, data, enrichment, outreach and CRM workflows behind a more structured outbound motion.",
+                emphasis: true,
+              },
+              {
+                n: "02",
+                label: "For consumer brands",
+                title: "Wholesale outbound",
+                body: "For DTC and consumer brands looking to reach retailers, professional buyers and other relevant stockists. I build the market mapping, account targeting, outreach and opportunity handoff behind a new wholesale channel.",
+              },
+              {
+                n: "03",
+                label: "Open GTM support",
+                title: "GTM systems and advisory",
+                body: "Not every GTM problem fits neatly into a predefined service. If you want to pressure-test a direction, discuss a commercial bottleneck or improve an existing system, I'm always open to a conversation.",
+              },
+            ]}
+          />
         </div>
       </section>
 
-      <section className="routes" id="routes">
+      <section className="section" id="how-i-work">
         <div className="container">
-          <div className="routes-grid">
-            <Link href="/distribution-gtm" className="route-card">
-              <span className="index">01 — GENERAL</span>
-              <h3>GTM Consulting</h3>
-              <p>For founders and scale-ups who need a growth strategy and the systems to execute it — not just advice.</p>
-              <span className="go">Explore GTM Consulting</span>
-            </Link>
+          <div className="section-head">
+            <p className="eyebrow">How I work</p>
+            <h2>Focused work. Visible progress.</h2>
+            <p>
+              Every engagement is organised around clear objectives, focused sprints and decisions
+              shaped by what the data is showing.
+            </p>
+          </div>
+          <Marquee
+            items={[
+              { n: "01", title: "Objectives first", body: "Start with a clear commercial objective and define what progress should look like." },
+              { n: "02", title: "Work in sprints", body: "Break the engagement into focused cycles with defined priorities, actions and deliverables." },
+              { n: "03", title: "Agile by default", body: "Review what is being learned and adjust the direction as new information emerges." },
+              { n: "04", title: "Data over assumptions", body: "Use market, campaign and pipeline data to decide what should happen next." },
+            ]}
+          />
+        </div>
+      </section>
 
-            <Link href="/distribution-dtc" className="route-card">
-              <span className="index">02 — PHYSICAL PRODUCT</span>
-              <h3>Wholesale &amp; Distribution</h3>
-              <p>For DTC brands ready to open a wholesale or professional channel, backed by a proven outbound system.</p>
-              <span className="go">Explore Wholesale &amp; Distribution</span>
-            </Link>
-
-            <Link href="/distribution-saas" className="route-card">
-              <span className="index">03 — SOFTWARE</span>
-              <h3>SaaS Growth</h3>
-              <p>For SaaS and scale-up teams looking to drive revenue through smarter GTM systems and channel strategy.</p>
-              <span className="go">Explore SaaS Growth</span>
-            </Link>
+      <section className="section" id="about">
+        <div className="container about-grid">
+          <div>
+            <p className="eyebrow">About</p>
+            <h2>Independent, hands-on and international.</h2>
+            <p className="gap-text" style={{ marginTop: 14 }}>
+              I&apos;m Alessio, founder of Distribution Lab. I&apos;ve always worked in
+              international settings, including working in the US and with teams in the UK.
+            </p>
+            <p className="gap-text" style={{ marginTop: 14 }}>
+              My background spans SaaS, ecommerce, business development, outbound and CRM.
+              Clients work directly with me, from understanding the commercial problem to building
+              and improving the system behind it.
+            </p>
+          </div>
+          <div className="about-portrait">
+            <Image
+              src="/alessio.jpg"
+              alt="Alessio Paoletti, founder of Distribution Lab"
+              fill
+              sizes="(max-width: 860px) 100vw, 360px"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
       </section>
 
-      <ProofSection
-        items={[
-          { num: "23–25%", desc: "Reply rate in outbound campaigns" },
-          { num: "~37", desc: "Warm opportunities from a single system" },
-          { num: "Clay · Attio · Instantly", desc: "The stack behind every system I build" },
-        ]}
-        note="/ Figures from wholesale outbound engagements — case-specific detail on each path page."
-      />
-
       <CTASection
-        eyebrow="Not sure which path fits"
-        heading="Tell me what you're working on."
-        body="I'll tell you honestly whether I can help — and if I can't, I'll say that too."
-        label="Get in touch"
+        heading="Have a GTM problem worth discussing?"
+        body="Tell me what you're working on. I'll tell you honestly where I think I can help."
+        label="Start a conversation"
+        href={CAL_URL}
+        email="hello@distribution-lab.com"
       />
     </>
   );

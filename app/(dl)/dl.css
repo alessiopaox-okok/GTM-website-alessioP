@@ -1,8 +1,8 @@
 /* =========================================================
-   DISTRIBUTION LAB — new-pages design tokens
+   DISTRIBUTION LAB — one-page design tokens
    Reuses the site's existing brand system (blue accent, Geist
    Sans/Mono, dark inverted sections) rather than a separate
-   palette, so these routes read as the same product as
+   palette, so this page reads as the same product as
    /contact and the rest of the site.
 
    Everything here is scoped under .dl so it can't leak into
@@ -61,6 +61,9 @@
   padding: 0 clamp(20px, 4vw, 48px);
 }
 
+/* anchor targets shouldn't sit under the sticky nav */
+.dl [id] { scroll-margin-top: 84px; }
+
 /* ---------- nav ---------- */
 
 .dl .site-nav {
@@ -98,13 +101,14 @@
 
 .dl .nav-links {
   display: flex;
+  align-items: center;
   gap: clamp(14px, 2vw, 28px);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-.dl .nav-links a {
+.dl .nav-links a:not(.btn) {
   text-decoration: none;
   color: var(--ink-soft);
   padding: 6px 2px;
@@ -112,33 +116,56 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.dl .nav-links a:hover,
-.dl .nav-links a[aria-current="page"] {
+.dl .nav-links a:not(.btn):hover {
   color: var(--ink);
   border-color: var(--accent);
 }
 
-.dl .nav-links a[aria-current="page"] { color: var(--accent-deep); }
+/* hamburger toggle — hidden on desktop */
+.dl .nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.dl .nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.dl .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.dl .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.dl .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* breadcrumb strip on subpages */
-.dl .channel-strip {
-  border-bottom: 1px solid var(--line);
+.dl .nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px clamp(20px, 4vw, 48px) 20px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
   background: var(--bg-panel);
 }
-.dl .channel-strip .container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+.dl .nav-mobile a:not(.btn) {
+  text-decoration: none;
+  color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
 }
-.dl .channel-strip .current { color: var(--accent-deep); }
-.dl .channel-strip .sep { color: var(--line); }
+.dl .nav-mobile .btn { margin-top: 14px; align-self: flex-start; }
+
+@media (max-width: 760px) {
+  .dl .nav-links { display: none; }
+  .dl .nav-toggle { display: flex; }
+}
 
 /* ---------- hero ---------- */
 
@@ -190,12 +217,10 @@
   stroke: var(--accent);
   stroke-width: 1.6;
   stroke-linecap: round;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: dlDraw 1.6s ease forwards;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: dlDraw 1.8s ease forwards;
 }
-.dl .schematic .branch.b2 { animation-delay: 0.12s; }
-.dl .schematic .branch.b3 { animation-delay: 0.24s; }
 
 .dl .schematic .node {
   fill: var(--bg);
@@ -235,6 +260,11 @@
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+.dl .btn-sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
 .dl .btn-primary {
   background: var(--accent);
   color: #fff;
@@ -249,128 +279,6 @@
   border: 1px solid var(--line);
 }
 .dl .btn-ghost:hover { border-color: var(--ink-soft); transform: translateY(-1px); }
-
-/* ---------- intro / throughline ---------- */
-
-.dl .intro {
-  padding: clamp(20px, 4vw, 32px) 0 clamp(48px, 6vw, 72px);
-  border-top: 1px solid var(--line);
-}
-.dl .intro p {
-  max-width: 62ch;
-  color: var(--ink-soft);
-  font-size: 1.05rem;
-}
-.dl .intro strong { color: var(--ink); font-weight: 600; }
-
-/* ---------- route cards ---------- */
-
-.dl .routes {
-  padding: clamp(24px, 4vw, 40px) 0 clamp(56px, 7vw, 88px);
-}
-
-.dl .routes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-@media (max-width: 780px) {
-  .dl .routes-grid { grid-template-columns: 1fr; }
-}
-
-.dl .route-card {
-  background: var(--bg);
-  padding: 32px 28px;
-  text-decoration: none;
-  color: var(--ink);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-height: 220px;
-  transition: background 0.2s ease;
-  position: relative;
-}
-
-.dl .route-card:hover { background: var(--bg-panel); }
-
-.dl .route-card .index {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-deep);
-  letter-spacing: 0.08em;
-}
-
-.dl .route-card h3 {
-  font-size: 1.5rem;
-}
-
-.dl .route-card p {
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  flex-grow: 1;
-}
-
-.dl .route-card .go {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--accent-deep);
-  letter-spacing: 0.04em;
-}
-
-.dl .route-card .go::after {
-  content: '→';
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.15s ease;
-}
-.dl .route-card:hover .go::after { transform: translateX(4px); }
-
-/* ---------- proof strip ---------- */
-
-.dl .proof {
-  background: var(--bg-dark);
-  color: var(--paper-on-dark);
-  padding: clamp(36px, 5vw, 52px) 0;
-}
-
-.dl .proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-@media (max-width: 780px) {
-  .dl .proof-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-
-.dl .proof-item .num {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 2.2rem;
-  letter-spacing: -0.025em;
-  color: var(--paper-on-dark);
-}
-
-.dl .proof-item .desc {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  color: var(--muted-on-dark);
-  margin-top: 6px;
-}
-
-.dl .proof-note {
-  margin-top: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: #7C8698;
-  letter-spacing: 0.04em;
-}
 
 /* ---------- generic section ---------- */
 
@@ -394,7 +302,6 @@
   color: var(--ink-soft);
 }
 
-/* problem / gap section */
 .dl .gap-text {
   max-width: 62ch;
   color: var(--ink-soft);
@@ -402,7 +309,7 @@
 }
 .dl .gap-text strong { color: var(--ink); }
 
-/* numbered process */
+/* editorial rows — used for both "What I build" and "How I work" */
 .dl .steps {
   display: grid;
   gap: 0;
@@ -427,61 +334,140 @@
 }
 .dl .step p { color: var(--ink-soft); margin: 0; max-width: 60ch; }
 
-/* two column: who / what */
-.dl .two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(28px, 5vw, 56px);
-}
-@media (max-width: 780px) {
-  .dl .two-col { grid-template-columns: 1fr; }
-}
-.dl .two-col h3 {
-  font-size: 1.05rem;
-  margin-bottom: 14px;
-}
-.dl .two-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.dl .two-col li {
-  padding-left: 20px;
-  position: relative;
-  color: var(--ink-soft);
-}
-.dl .two-col li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
+.dl .step-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
 }
 
-/* testimonial */
-.dl .testimonial {
-  background: var(--bg-panel);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 10px 10px 0;
-  padding: 28px 32px;
-  max-width: 68ch;
+/* first "What I build" row — slightly more visual prominence */
+.dl .step.step-emphasis { padding: 34px 0; }
+.dl .step.step-emphasis .n { color: var(--accent-deep); font-weight: 700; }
+.dl .step.step-emphasis h3 { font-size: 1.4rem; }
+.dl .step.step-emphasis p { font-size: 1.02rem; }
+
+/* "What I build" — hover spotlight: the hovered row lifts forward,
+   the rest recede. Pure CSS, no JS needed. */
+.dl .steps-interactive .step {
+  position: relative;
+  z-index: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
-.dl .testimonial p {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 1.25rem;
-  font-style: italic;
-  color: var(--ink);
+.dl .steps-interactive .step::before {
+  content: '';
+  position: absolute;
+  inset: 0 -24px;
+  background: var(--bg-panel);
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: -1;
+}
+.dl .steps-interactive .step:hover {
+  transform: translateX(6px);
+  z-index: 1;
+}
+.dl .steps-interactive .step:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 16px 32px -14px rgba(15, 23, 42, 0.18);
+}
+.dl .steps-interactive:has(.step:hover) .step:not(:hover) {
+  opacity: 0.4;
+}
+
+/* ---------- how-i-work marquee ---------- */
+/* a continuous, seamless horizontal loop — the four principles read as a
+   cycle rather than a checklist. Content is duplicated once so translating
+   the track exactly -50% wraps perfectly; the duplicate is aria-hidden so
+   screen readers only hear it once. */
+
+.dl .how-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+          mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+}
+
+.dl .how-track {
+  display: flex;
+  width: max-content;
+  animation: dlMarquee 32s linear infinite;
+}
+.dl .how-marquee:hover .how-track { animation-play-state: paused; }
+
+.dl .how-set { display: flex; }
+
+.dl .how-card-wrap { display: flex; align-items: center; flex: 0 0 auto; }
+
+.dl .how-card {
+  width: clamp(220px, 22vw, 280px);
+  padding: 4px clamp(18px, 3vw, 28px);
+}
+.dl .how-card .n {
+  font-family: var(--font-mono);
+  color: var(--accent-deep);
+  font-size: 0.85rem;
+}
+.dl .how-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 8px;
+}
+.dl .how-card p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
   margin: 0;
 }
-.dl .testimonial .cite {
-  margin-top: 14px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--ink-faint);
-  letter-spacing: 0.04em;
+
+.dl .how-connector {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: clamp(28px, 4vw, 52px);
+}
+.dl .how-connector .line { flex: 1; height: 1px; background: var(--line); }
+.dl .how-connector .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--bg-panel);
+}
+
+@keyframes dlMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .dl .how-card { width: clamp(200px, 74vw, 260px); }
+}
+
+/* ---------- about ---------- */
+
+.dl .about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .dl .about-grid { grid-template-columns: 1fr; }
+}
+
+.dl .about-portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  overflow: hidden;
 }
 
 /* closing CTA */
@@ -509,6 +495,19 @@
   box-shadow: none;
 }
 .dl .cta-section .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.dl .cta-section .cta-email {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.dl .cta-section .cta-email a {
+  color: var(--muted-on-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dl .cta-section .cta-email a:hover { color: var(--paper-on-dark); border-color: var(--paper-on-dark); }
 
 /* footer */
 .dl .site-footer {

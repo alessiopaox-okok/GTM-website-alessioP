@@ -33,7 +33,7 @@ export default function CaseStudy() {
           <div className="md:col-span-3">
             <p className="text-[#6B6B6B] leading-relaxed mb-8 text-sm">
               For The Feats, I have been helping structure outbound campaigns
-              across running retailers and podiatry clinics — building lead
+              across running retailers and podiatry clinics, building lead
               lists, testing messaging, managing replies, improving follow-up
               logic, and turning early commercial activity into a more
               repeatable GTM process.

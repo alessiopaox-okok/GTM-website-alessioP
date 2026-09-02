@@ -100,7 +100,7 @@ export default function TheFeats() {
         }}>
           <p style={{ fontSize: "0.9375rem", lineHeight: 1.8, color: "rgba(255,255,255,0.75)", marginBottom: 0 }}>
             One of those stockists, <strong style={{ color: "#ffffff", fontWeight: 600 }}>Chelmsford &amp; Braintree Footcare</strong> in Essex,
-            now reorders the range every five weeks — around £130 an order, roughly
+            now reorders the range every five weeks, around £130 an order, roughly
             £1,400 a year, all from their existing patients.
           </p>
         </div>
@@ -130,7 +130,7 @@ export default function TheFeats() {
             fontFamily: "var(--font-mono)",
             letterSpacing: "0.04em",
           }}>
-            Sian Thomasson — Podiatrist, HCPC, MSc, 18+ years
+            Sian Thomasson, Podiatrist, HCPC, MSc, 18+ years
           </cite>
         </blockquote>
 

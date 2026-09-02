@@ -5,11 +5,10 @@ export default function DLFooter() {
     <footer className="site-footer">
       <div className="container">
         <span style={{ display: "inline-flex", alignItems: "center", gap: 9 }}>
-          <Logo height={22} />
+          <Logo height={20} />
           <span className="logo-wordmark">Distribution Lab</span>
-          <span>— Rome, Italy</span>
         </span>
-        <a href="mailto:hello@distribution-lab.com">hello@distribution-lab.com</a>
+        <span>Independent GTM operator &middot; &copy; {new Date().getFullYear()} Distribution Lab</span>
       </div>
     </footer>
   );

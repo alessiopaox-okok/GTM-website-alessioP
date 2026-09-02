@@ -24,14 +24,21 @@ const jetbrainsMono = JetBrains_Mono({
 */
 
 export const metadata: Metadata = {
-  title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
+  title: "Distribution Lab | Wholesale Growth Systems for Product Brands",
   description:
     "Distribution Lab builds the outbound and CRM systems that help product brands find, qualify, and convert the right wholesale accounts.",
   keywords: ["wholesale growth", "outbound systems", "go-to-market", "CRM", "distribution"],
   openGraph: {
-    title: "Distribution Lab — Wholesale Growth Systems for Product Brands",
+    title: "Distribution Lab | Wholesale Growth Systems for Product Brands",
     description: "One founder, hands-on. No account managers in between.",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Distribution Lab | Wholesale Growth Systems for Product Brands",
+    description: "One founder, hands-on. No account managers in between.",
+    images: ["/og-image.png"],
   },
 };
 

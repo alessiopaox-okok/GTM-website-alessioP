@@ -9,7 +9,7 @@ const PRINCIPLES = [
   },
   {
     title: "Relevance before automation",
-    body: "AI is useful when it helps you understand the account — not when it creates more noise.",
+    body: "AI is useful when it helps you understand the account, not when it creates more noise.",
   },
   {
     title: "Handoff before chaos",

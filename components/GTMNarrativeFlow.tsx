@@ -1,7 +1,7 @@
 /* ── Static premium reply stack ──────────────────────────────────── */
 
 const BEHIND_CARDS = [
-  { text: "Sounds interesting — send more info.", offset: { x: -12, y: -14 }, opacity: 0.45, blur: 1 },
+  { text: "Sounds interesting, send more info.", offset: { x: -12, y: -14 }, opacity: 0.45, blur: 1 },
   { text: "Can you share samples and pricing?",   offset: { x: -24, y: -28 }, opacity: 0.25, blur: 2 },
 ];
 

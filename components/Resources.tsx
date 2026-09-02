@@ -11,7 +11,7 @@ const resources = [
     type: "Guide",
     title: "Cold Email That Actually Works",
     description:
-      "How to write outbound sequences that get replies — ICP targeting, messaging structure, and follow-up logic.",
+      "How to write outbound sequences that get replies: ICP targeting, messaging structure, and follow-up logic.",
     cta: "Coming soon",
     available: false,
   },

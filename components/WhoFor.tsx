@@ -27,8 +27,8 @@ export default function WhoFor() {
           color: "#475569",
           maxWidth: 620,
         }}>
-          Product brands selling into independent retail or clinics — foot care,
-          running, active and clinical niches — that want shelf space and don't
+          Product brands selling into independent retail or clinics, in foot care,
+          running, active and clinical niches, that want shelf space and don't
           have the time or system to chase it. If you sell direct-to-consumer
           only with no wholesale ambition, this isn't the right fit.
         </p>

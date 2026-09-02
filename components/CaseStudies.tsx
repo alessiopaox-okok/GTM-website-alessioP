@@ -120,7 +120,7 @@ const PILLARS = [
   {
     num  : "01",
     title: "Map the entire market",
-    body : "We map every account worth targeting before a single email goes out — clusters, segments, stockists, clinics, and distributors — so outreach starts with a plan, not a guess.",
+    body : "We map every account worth targeting before a single email goes out. It covers clusters, segments, stockists, clinics, and distributors, so outreach starts with a plan, not a guess.",
     delay: 0,
   },
   {
@@ -132,7 +132,7 @@ const PILLARS = [
   {
     num  : "03",
     title: "Launch the outbound that generates conversations",
-    body : "Segmented sequences, tested messaging, and managed replies built around real buyer profiles — outbound designed to start conversations, not just send volume.",
+    body : "Segmented sequences, tested messaging, and managed replies built around real buyer profiles. Outbound designed to start conversations, not just send volume.",
     delay: 0.8,
   },
 ];

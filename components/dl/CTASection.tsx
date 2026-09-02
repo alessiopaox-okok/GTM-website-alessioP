@@ -3,19 +3,28 @@ export default function CTASection({
   heading,
   body,
   label,
+  href,
+  email,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   heading: string;
-  body: string;
+  body?: string;
   label: string;
+  href: string;
+  email?: string;
 }) {
   return (
     <section className="cta-section">
       <div className="container">
-        <p className="eyebrow" style={{ color: "var(--muted-on-dark)" }}>{eyebrow}</p>
+        {eyebrow && <p className="eyebrow" style={{ color: "var(--muted-on-dark)" }}>{eyebrow}</p>}
         <h2>{heading}</h2>
-        <p>{body}</p>
-        <a href="mailto:hello@distribution-lab.com" className="btn btn-primary">{label}</a>
+        {body && <p>{body}</p>}
+        <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{label}</a>
+        {email && (
+          <p className="cta-email">
+            <a href={`mailto:${email}`}>{email}</a>
+          </p>
+        )}
       </div>
     </section>
   );

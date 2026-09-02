@@ -3,7 +3,7 @@ import SectionLabel from "./SectionLabel";
 const points = [
   {
     title: "I understand sales, not just marketing.",
-    body: "Most GTM help stops at awareness or top-of-funnel. I work across the full commercial motion — from first touch to closed deal.",
+    body: "Most GTM help stops at awareness or top-of-funnel. I work across the full commercial motion, from first touch to closed deal.",
   },
   {
     title: "I build systems, not one-off campaigns.",
