@@ -459,11 +459,13 @@
 }
 @media (max-width: 860px) {
   .dl .about-grid { grid-template-columns: 1fr; }
+  .dl .about-portrait { margin: 0 auto; }
 }
 
 .dl .about-portrait {
   position: relative;
-  width: 100%;
+  width: 60%;
+  margin-left: auto;
   aspect-ratio: 1 / 1;
   border-radius: 14px;
   border: 1px solid var(--line);

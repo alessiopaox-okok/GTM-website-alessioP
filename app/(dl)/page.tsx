@@ -111,7 +111,7 @@ export default function Home() {
               src="/alessio.jpg"
               alt="Alessio Paoletti, founder of Distribution Lab"
               fill
-              sizes="(max-width: 860px) 100vw, 360px"
+              sizes="(max-width: 860px) 60vw, 270px"
               style={{ objectFit: "cover" }}
             />
           </div>
