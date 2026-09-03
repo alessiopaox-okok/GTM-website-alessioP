@@ -123,7 +123,7 @@ export default function Home() {
         body="Tell me what you're working on. I'll tell you honestly where I think I can help."
         label="Start a conversation"
         href={CAL_URL}
-        email="hello@distribution-lab.com"
+        email="alessio@distribution-lab.com"
       />
     </>
   );
