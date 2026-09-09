@@ -472,6 +472,128 @@
   overflow: hidden;
 }
 
+/* ---------- selected results (dark case-study section) ---------- */
+
+.dl .results-section {
+  background: var(--bg-dark);
+  color: var(--paper-on-dark);
+  padding: clamp(56px, 8vw, 92px) 0;
+}
+
+.dl .results-head {
+  max-width: 62ch;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+.dl .results-head h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  color: var(--paper-on-dark);
+  margin-top: 10px;
+}
+.dl .results-head p {
+  margin-top: 14px;
+  color: var(--muted-on-dark);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.dl .results-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dl .result-case {
+  padding: clamp(32px, 5vw, 48px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dl .result-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.dl .result-index {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.dl .result-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+.dl .result-case h3 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  color: var(--paper-on-dark);
+  max-width: 46ch;
+}
+
+.dl .result-body {
+  margin-top: 10px;
+  color: #B9C0CC;
+  max-width: 62ch;
+  font-size: 1rem;
+}
+
+.dl .result-keywords {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6B7280;
+}
+
+.dl .result-metrics {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  max-width: 640px;
+}
+
+.dl .result-metric {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.dl .result-metric-value {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  color: var(--paper-on-dark);
+}
+.dl .result-metric-label {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+@media (max-width: 640px) {
+  .dl .result-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* inline link from a "What I build" row down to its case study */
+.dl .step-result-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.dl .step-result-link:hover { color: var(--ink); border-color: var(--accent); }
+
 /* closing CTA */
 .dl .cta-section {
   background: var(--bg-dark);

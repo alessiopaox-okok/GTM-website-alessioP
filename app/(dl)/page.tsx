@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Schematic from "@/components/dl/Schematic";
 import Steps from "@/components/dl/Steps";
+import SelectedResults from "@/components/dl/SelectedResults";
 import Marquee from "@/components/dl/Marquee";
 import CTASection from "@/components/dl/CTASection";
 
@@ -52,12 +53,14 @@ export default function Home() {
                 title: "Outbound and pipeline systems",
                 body: "For SaaS companies and sales teams that want to spend more time in conversations and less time building lists. I build the targeting, data, enrichment, outreach and CRM workflows behind a more structured outbound motion.",
                 emphasis: true,
+                resultLink: { href: "#result-saas", label: "See SaaS result ↓" },
               },
               {
                 n: "02",
                 label: "For consumer brands",
                 title: "Wholesale outbound",
                 body: "For DTC and consumer brands looking to reach retailers, professional buyers and other relevant stockists. I build the market mapping, account targeting, outreach and opportunity handoff behind a new wholesale channel.",
+                resultLink: { href: "#result-wholesale", label: "See wholesale result ↓" },
               },
               {
                 n: "03",
@@ -69,6 +72,39 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <SelectedResults
+        eyebrow="Selected results"
+        heading="Systems that create measurable movement."
+        intro="A selection of outbound systems built across SaaS and consumer brands—from scaling an established sales motion to creating a wholesale pipeline from the ground up."
+        cases={[
+          {
+            id: "result-saas",
+            index: "01",
+            tag: "SaaS · International software company",
+            title: "Scaling outbound without adding operational drag.",
+            body: "Improved the outbound workflows supporting an international SaaS company's SMB motion, increasing email output by 200% and contributing to 35% revenue growth across the segment.",
+            keywords: "Campaign operations · Workflow improvement · Pipeline generation",
+            metrics: [
+              { value: "3x", label: "Email output" },
+              { value: "+35%", label: "SMB revenue growth" },
+            ],
+          },
+          {
+            id: "result-wholesale",
+            index: "02",
+            tag: "Consumer · UK wellness brand",
+            title: "Building a wholesale pipeline from the ground up.",
+            body: "Built the market mapping, account targeting, enrichment, outreach and CRM workflow behind a new retail acquisition motion—turning targeted outreach into qualified commercial opportunities.",
+            keywords: "Market mapping · Enrichment · Outreach · Attio CRM",
+            metrics: [
+              { value: "1.4k", label: "Targeted emails" },
+              { value: "38", label: "Positive replies" },
+              { value: "31", label: "Opportunities" },
+            ],
+          },
+        ]}
+      />
 
       <section className="section" id="how-i-work">
         <div className="container">
