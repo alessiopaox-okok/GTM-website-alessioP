@@ -98,9 +98,9 @@ export default function Home() {
             body: "Built the market mapping, account targeting, enrichment, outreach and CRM workflow behind a new retail acquisition motion—turning targeted outreach into qualified commercial opportunities.",
             keywords: "Market mapping · Enrichment · Outreach · Attio CRM",
             metrics: [
-              { value: "1.4k", label: "Targeted emails" },
-              { value: "38", label: "Positive replies" },
-              { value: "31", label: "Opportunities" },
+              { value: "38", label: "Opportunities" },
+              { value: "£36k", label: "In pipeline" },
+              { value: "8 weeks", label: "To get there" },
             ],
           },
         ]}
