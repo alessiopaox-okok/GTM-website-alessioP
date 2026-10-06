@@ -42,7 +42,7 @@ export default function DLNav() {
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
           <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
-            Start a conversation
+            Book a call
           </a>
         </div>
 
@@ -71,7 +71,7 @@ export default function DLNav() {
             className="btn btn-primary"
             onClick={close}
           >
-            Start a conversation
+            Book a call
           </a>
         </div>
       )}

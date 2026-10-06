@@ -28,7 +28,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Start a conversation
+                Book a call
               </a>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function Home() {
       <CTASection
         heading="Have a GTM problem worth discussing?"
         body="Tell me what you're working on. I'll tell you honestly where I think I can help."
-        label="Start a conversation"
+        label="Book a call"
         href={CAL_URL}
         email="alessio@distribution-lab.com"
       />
