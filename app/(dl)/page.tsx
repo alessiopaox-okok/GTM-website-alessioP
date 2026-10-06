@@ -131,15 +131,28 @@ export default function Home() {
         <div className="container about-grid">
           <div>
             <p className="eyebrow">About</p>
-            <h2>Independent, hands-on and international.</h2>
+            <h2>The person behind Distribution Lab.</h2>
             <p className="gap-text" style={{ marginTop: 14 }}>
-              I&apos;m Alessio, founder of Distribution Lab. I&apos;ve always worked in
-              international settings, including working in the US and with teams in the UK.
+              I’m Alessio, an Italian and American growth operator and founder of Distribution Lab.
+              I’ve worked across B2B SaaS, ecommerce, sales and digital marketing, always with
+              international teams and an eye toward growth.
             </p>
             <p className="gap-text" style={{ marginTop: 14 }}>
-              My background spans SaaS, ecommerce, business development, outbound and CRM.
-              Clients work directly with me, from understanding the commercial problem to building
-              and improving the system behind it.
+              Alongside those roles, I’ve started ventures of my own. Being responsible for finding
+              customers, testing ideas and making things work has shaped how I approach a business
+              problem: ask questions, understand the constraints, and connect the strategy to the
+              work it requires.
+            </p>
+            <p className="gap-text" style={{ marginTop: 14 }}>
+              I’m naturally curious and analytical. I enjoy bringing different perspectives
+              together, figuring out why something isn’t working, and finding ways to improve it.
+              Technology interests me most when it gives people more room to think, make decisions
+              and do meaningful work.
+            </p>
+            <p className="gap-text" style={{ marginTop: 14 }}>
+              Distribution Lab brings those interests together. I work directly with founders and
+              teams to turn commercial problems into practical GTM systems, combining targeting,
+              data, outreach and CRM workflows with the judgment to decide what is worth building.
             </p>
           </div>
           <div className="about-portrait">
@@ -156,10 +169,8 @@ export default function Home() {
 
       <CTASection
         heading="Have a GTM problem worth discussing?"
-        body="Tell me what you're working on. I'll tell you honestly where I think I can help."
         label="Book a call"
         href={CAL_URL}
-        email="alessio@distribution-lab.com"
       />
     </>
   );
