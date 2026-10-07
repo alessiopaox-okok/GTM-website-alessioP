@@ -33,20 +33,24 @@ export default function SelectedResults({
         <div className="results-list">
           {cases.map((c) => (
             <div className="result-case" id={c.id} key={c.id}>
-              <div className="result-head">
-                <span className="result-index">{c.index}</span>
-                <span className="result-tag">{c.tag}</span>
+              <div className="result-main">
+                <div className="result-head">
+                  <span className="result-index">{c.index}</span>
+                  <span className="result-tag">{c.tag}</span>
+                </div>
+                <h3>{c.title}</h3>
               </div>
-              <h3>{c.title}</h3>
-              <p className="result-body">{c.body}</p>
-              <p className="result-keywords">{c.keywords}</p>
-              <div className="result-metrics">
-                {c.metrics.map((m) => (
-                  <div className="result-metric" key={m.label}>
-                    <div className="result-metric-value">{m.value}</div>
-                    <div className="result-metric-label">{m.label}</div>
-                  </div>
-                ))}
+              <div className="result-side">
+                <p className="result-body">{c.body}</p>
+                <p className="result-keywords">{c.keywords}</p>
+                <div className="result-metrics">
+                  {c.metrics.map((m) => (
+                    <div className="result-metric" key={m.label}>
+                      <div className="result-metric-value">{m.value}</div>
+                      <div className="result-metric-label">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

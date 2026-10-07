@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="section" id="what-i-build" style={{ borderTop: "none", paddingTop: 0 }}>
+      <section className="section" id="what-i-build">
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">What I build</p>
@@ -81,7 +81,7 @@ export default function Home() {
           {
             id: "result-saas",
             index: "01",
-            tag: "SaaS · International software company",
+            tag: "B2B SaaS",
             title: "Scaling outbound without adding operational drag.",
             body: "Improved the outbound workflows supporting an international SaaS company's SMB motion, increasing email output by 200% and contributing to 35% revenue growth across the segment.",
             keywords: "Campaign operations · Workflow improvement · Pipeline generation",
